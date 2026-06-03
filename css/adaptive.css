@@ -1,0 +1,19 @@
+@media (max-width: 768px) {
+    :root {
+        --grid-columns: 4;
+        --page-padding: 16px;
+        --grid-gap: 12px;
+
+        --header-offset: 20px;
+        --section-space: 60px;
+    }
+
+    .nav {
+        display: none;
+    }
+
+    .mobile-menu-button {
+        display: inline-flex;
+    }
+
+}

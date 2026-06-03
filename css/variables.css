@@ -1,0 +1,56 @@
+@font-face {
+    font-family: "Neuropol";
+    src: url("../assets/fonts/neuropol.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("../assets/fonts/inter-regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("../assets/fonts/inter-medium.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    --page-width: 1440px;
+
+    --grid-columns: 12;
+    --page-padding: 16px;
+    --grid-gap: 16px;
+
+    --header-offset: 32px;
+    --section-space: 80px;
+
+    --color-black: #000000;
+    --color-white: #FFFFFF;
+    --color-light-gray: #E6EBED;
+    --color-blue: #C2D8EE;
+    --color-dark-blue: #242B31;
+
+    --color-black-rgb: 0, 0, 0;
+    --color-white-rgb: 255, 255, 255;
+
+    --glass-white: rgba(var(--color-white-rgb), 0.5);
+    --glass-black-text: rgba(var(--color-black-rgb), 0.35);
+
+    --blur-default: 16px;
+
+    --radius-small: 16px;
+    --radius-medium: 24px;
+    --radius-large: 48px;
+    --radius-pill: 999px;
+
+    --font-main: "Inter", Arial, sans-serif;
+    --font-display: "Neuropol", Arial, sans-serif;
+}
