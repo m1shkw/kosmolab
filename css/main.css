@@ -84,6 +84,45 @@ main {
     padding-bottom: var(--section-space);
 }
 
+
+.hero-screen {
+    width: 100%;
+    height: 810px;
+
+    position: relative;
+    overflow: hidden;
+
+    background-color: var(--color-black);
+    color: var(--color-white);
+
+    border-radius: 0 0 var(--radius-large) var(--radius-large);
+}
+
+.hero-screen__inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    padding: 24px;
+}
+
+.hero-screen__visual {
+    width: 100%;
+    height: 100%;
+}
+
+.hero-screen__buttons {
+    position: absolute;
+    left: 50%;
+    bottom: 48px;
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+
 .header {
     position: fixed;
     top: var(--header-offset);
@@ -126,7 +165,7 @@ main {
     font-family: var(--font-display);
 }
 
-.mobile-menu-button {
+.button.mobile-menu-button {
     display: none;
 }
 
@@ -228,15 +267,65 @@ main {
 }
 
 .footer {
+    position: relative;
+    width: 100%;
+    min-height: 372px;
+
+    margin-top: var(--section-space);
+    padding: 48px 16px 20px;
+
     background-color: var(--color-black);
     color: var(--color-white);
-    padding: 48px var(--page-padding);
+
+    border-radius: var(--radius-large) var(--radius-large) 0 0;
 }
 
 .footer__nav {
+    width: fit-content;
+    margin: 0 auto;
+
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    align-items: center;
+    gap: 32px;
+
+    font-family: var(--font-main);
+    font-size: 24px;
+    line-height: 1;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.footer__meta {
+    position: absolute;
+    left: 16px;
+    bottom: 16px;
+
+    display: flex;
+    align-items: center;
+    gap: 72px;
+
+    font-family: var(--font-main);
+    font-size: 12px;
+    line-height: 1;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.footer__credits {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+
+    display: flex;
+    align-items: center;
+    gap: 72px;
+
+    font-family: var(--font-main);
+    font-size: 12px;
+    line-height: 1;
+    font-weight: 500;
+    text-transform: uppercase;
 }
 
 .is-hidden {

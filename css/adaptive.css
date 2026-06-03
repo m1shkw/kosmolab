@@ -12,8 +12,37 @@
         display: none;
     }
 
-    .mobile-menu-button {
+    .button.mobile-menu-button {
         display: inline-flex;
     }
 
+
+    .footer {
+        min-height: 330px;
+        padding: 48px 16px 20px;
+        border-radius: 48px 48px 0 0;
+    }
+
+    .footer__nav {
+        gap: 28px;
+        font-size: 24px;
+    }
+
+    .footer__meta,
+    .footer__credits {
+        position: static;
+        gap: 0;
+        justify-content: space-between;
+
+        width: 100%;
+        font-size: 12px;
+    }
+
+    .footer__meta {
+        margin-top: 48px;
+    }
+
+    .footer__credits {
+        margin-top: 12px;
+    }
 }
