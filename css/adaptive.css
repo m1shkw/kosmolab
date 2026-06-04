@@ -160,7 +160,7 @@
     /* mob : футер */
     .footer {
         min-height: 330px;
-        padding: 48px 16px 20px;
+        padding: 48px 16px 48px;
         border-radius: 32px 32px 0 0;
     }
 
@@ -192,7 +192,8 @@
     .hero-screen {
         --planet-main-size: clamp(280px, 78vw, 520px);
 
-        max-height: 950px;
+        height: 100svh;
+        min-height: 715px;
 
         border-radius: 0 0 var(--radius-large-mobile) var(--radius-large-mobile);
     }
