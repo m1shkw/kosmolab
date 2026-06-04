@@ -192,8 +192,10 @@
     .hero-screen {
         --planet-main-size: clamp(280px, 78vw, 520px);
 
+        height: 100vh;
         height: 100svh;
-        min-height: 715px;
+        min-height: 0;
+        max-height: 950px;
 
         border-radius: 0 0 var(--radius-large-mobile) var(--radius-large-mobile);
     }
