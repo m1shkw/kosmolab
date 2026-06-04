@@ -51,10 +51,10 @@ document.addEventListener("DOMContentLoaded", () => {
 // scramble эффект : рандом набор символов
 (() => {
     const SCRAMBLE_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+-/#$%&()£@!?^><,.*;'[]{}";
-    const ASSEMBLE_MIN = 600;
-    const ASSEMBLE_MAX = 900;
-    const HOLD_MS = 2500;
-    const GAP_MS = 200;
+    const ASSEMBLE_MIN = 1200;
+    const ASSEMBLE_MAX = 1800;
+    const HOLD_MS = 3000;
+    const GAP_MS = 400;
 
     const randChar = () =>
         SCRAMBLE_CHARS[Math.floor(Math.random() * SCRAMBLE_CHARS.length)];

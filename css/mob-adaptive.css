@@ -366,9 +366,7 @@
 
 
 
-    /* ===== Тизер каталога — мобайл: сетка 2×2 вместо бегущей строки ===== */
-
-    /* отключаем marquee: лента больше не обрезается и не едет */
+    /* III. тизер каталога */
     .catalog-teaser__marquee {
         overflow: visible;
     }
@@ -377,19 +375,18 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         column-gap: 16px;
-        row-gap: 48px;
-        width: auto;          /* сброс width: max-content с десктопа */
-        animation: none;      /* выключаем бесконечную прокрутку */
+        row-gap: 24px;
+        width: auto;
+        animation: none;
     }
 
-    /* прячем дубликаты, которые нужны только для desktop-ленты */
     .catalog-teaser__planet[aria-hidden="true"] {
         display: none;
     }
 
-    /* крупные планеты, влезающие в колонку, по центру с подписью */
+    /* планеты */
     .catalog-teaser__planet {
-        gap: 12px;
+        gap: 16px;
     }
 
     .catalog-teaser__planet-image {
@@ -397,7 +394,6 @@
         max-width: clamp(140px, 44vw, 220px);
     }
 
-    /* мерч остаётся ниже, как был (горизонтальная прокрутка со снапом) */
     .catalog-teaser__merch {
         display: flex;
         grid-template-columns: none;
