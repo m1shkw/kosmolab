@@ -48,7 +48,7 @@
     /* tab : верхний правый пункт */
     .hero-callout--top {
         left: auto;
-        right: 72px;
+        right: 48px;
         top: calc(50% - 300px);
     }
 
@@ -272,7 +272,7 @@
     .hero-callout--top {
         left: auto;
         right: 32px;
-        top: calc(50% - 246px - var(--mob-hero-shift));
+        top: calc(50% - 235px - var(--mob-hero-shift));
     }
 
     .hero-callout--top .hero-callout__circle {
@@ -297,7 +297,7 @@
         left: 32px;
         right: auto;
         top: auto;
-        bottom: calc(50% - 230px + var(--mob-hero-shift));
+        bottom: calc(50% - 235px + var(--mob-hero-shift));
     }
 
     .hero-callout--bottom .hero-callout__circle {

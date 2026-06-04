@@ -316,8 +316,9 @@ main {
 /* I. hero-блок */
 .hero-screen {
     width: 100%;
-    min-height: 810px;
+    min-height: 0x;
     height: 100svh;
+    
 
     position: relative;
     overflow: hidden;
@@ -485,8 +486,8 @@ main {
 
 /* верхний правый пункт */
 .hero-callout--top {
-    left: calc(50% + 198px - var(--callout-shift));
-    top: calc(50% - 270px);
+    left: calc(50% + 204px - var(--callout-shift));
+    top: calc(50% - 280px);
 }
 .hero-callout--top .hero-callout__circle {
     left: 0;
@@ -504,8 +505,8 @@ main {
 
 /* нижний левый пункт */
 .hero-callout--bottom {
-    right: calc(50% + 184px - var(--callout-shift));
-    top: calc(50% + 200px);
+    right: calc(50% + 176px - var(--callout-shift));
+    top: calc(50% + 194px);
 }
 .hero-callout--bottom .hero-callout__circle {
     right: 0;
