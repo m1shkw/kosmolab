@@ -45,9 +45,9 @@
 
 
     /* хедер */
-    .header__logo {
-        padding: 0 20px;
-        gap: 0;
+    .header {
+        right: auto;
+        width: max-content;
     }
 
     .header__logo-text {
@@ -56,6 +56,46 @@
 
     .header__logo-icon {
         height: 23px;
+    }
+
+    /* выпадающее меню */
+    .mobile-nav {
+        position: absolute;
+        top: calc(100% + 12px);
+        left: 0;
+
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 8px;
+
+        width: 100%;
+
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translateY(-8px);
+        transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+    }
+
+    .mobile-nav.is-open {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+
+    .mobile-nav__link {
+        width: 100%;
+        min-height: 41px;
+
+        justify-content: flex-start;
+        text-align: left;
+
+        color: rgba(var(--color-black-rgb), 0.35);
+    }
+
+    .mobile-nav__link.is-active {
+        color: var(--color-black);
     }
 
 

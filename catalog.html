@@ -30,9 +30,17 @@
                 <a class="nav__link" href="./guide.html">Руководство</a>
             </nav>
 
-            <button class="button mobile-menu-button" type="button">
+            <button class="button mobile-menu-button" type="button" aria-expanded="false" aria-controls="mobileNav">
                 Меню
             </button>
+
+            <nav class="mobile-nav" id="mobileNav" aria-label="Мобильная навигация">
+                <a class="mobile-nav__link button is-active" href="./index.html">Главная</a>
+                <a class="mobile-nav__link button" href="./catalog.html">Каталог</a>
+                <a class="mobile-nav__link button" href="./events.html">Мероприятия</a>
+                <a class="mobile-nav__link button" href="./about.html">О нас</a>
+                <a class="mobile-nav__link button" href="./guide.html">Руководство</a>
+            </nav>
         </header>
 
         <main>

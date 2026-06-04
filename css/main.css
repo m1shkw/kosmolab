@@ -231,6 +231,9 @@ main {
     line-height: 1;
     text-transform: uppercase;
 }
+.mobile-nav {
+    display: none;
+}
 
 .header__logo-icon {
     height: 23px;

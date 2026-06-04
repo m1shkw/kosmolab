@@ -3,9 +3,54 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+// активная ссылка в хедере
+document.addEventListener("DOMContentLoaded", () => {
+    let currentPage = window.location.pathname.split("/").pop();
+
+    if (!currentPage) {
+        currentPage = "index.html";
+    }
+
+    const navLinks = document.querySelectorAll(".nav__link, .mobile-nav__link");
+
+    navLinks.forEach((link) => {
+        const linkPage = link.getAttribute("href").split("/").pop();
+
+        link.classList.toggle("is-active", linkPage === currentPage);
+    });
+});
+
+
+// хедер мобилка / таб
+document.addEventListener("DOMContentLoaded", () => {
+    const menuButton = document.querySelector(".mobile-menu-button");
+    const mobileNav = document.querySelector(".mobile-nav");
+
+    if (!menuButton || !mobileNav) return;
+
+    menuButton.addEventListener("click", () => {
+        const isOpen = mobileNav.classList.toggle("is-open");
+        menuButton.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    mobileNav.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+            mobileNav.classList.remove("is-open");
+            menuButton.setAttribute("aria-expanded", "false");
+        });
+    });
+
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+            mobileNav.classList.remove("is-open");
+            menuButton.setAttribute("aria-expanded", "false");
+        }
+    });
+});
+
 // scramble эффект : рандом набор символов
 (() => {
-    const SCRAMBLE_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+-/#$%&";
+    const SCRAMBLE_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+-/#$%&()£@!?^><,.*;'[]{}";
     const ASSEMBLE_MIN = 600;
     const ASSEMBLE_MAX = 900;
     const HOLD_MS = 2500;
