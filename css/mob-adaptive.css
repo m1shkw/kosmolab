@@ -1,102 +1,4 @@
 
-/* планшет 1024px - 769px */
-@media (min-width: 769px) and (max-width: 1024px) {
-    
-    /* tab : хедер */
-    .nav {
-        display: none;
-    }
-
-    .button.mobile-menu-button {
-        display: inline-flex;
-    }
-
-    .header__logo-icon {
-        height: 23px;
-    }
-
-
-    /* tab : I. hero-блок */
-    
-    /* tab : логотип + описание */
-    .hero-screen__content {
-        gap: 24px;
-        max-width: calc(100% - 64px);
-    }
-
-    .hero-screen__logo--tablet {
-        display: block;
-        width: clamp(320px, 38vw, 420px);
-        transform: translateY(16px);
-    }
-    .hero-screen__logo--desktop,
-    .hero-screen__logo--mobile {
-        display: none;
-    }
-
-
-    /* tab : пунктики с подписями */
-    .hero-callout {
-        width: 300px;
-    }
-
-    .hero-callout__text {
-        white-space: normal;
-        max-width: 150px;
-    }
-
-    /* tab : верхний правый пункт */
-    .hero-callout--top {
-        left: auto;
-        right: 48px;
-        top: calc(50% - 300px);
-    }
-
-    .hero-callout--top .hero-callout__circle {
-        left: 0;
-        bottom: 0;
-    }
-
-    .hero-callout--top .hero-callout__line {
-        left: 24px;
-        bottom: 24px;
-        width: 150px;
-    }
-
-    .hero-callout--top .hero-callout__text {
-        left: 64px;
-        top: -12px;
-        text-align: left;
-    }
-
-    /* tab : нижний левый пункт */
-    .hero-callout--bottom {
-        left: 72px;
-        right: auto;
-        bottom: calc(50% - 300px);
-    }
-
-    .hero-callout--bottom .hero-callout__circle {
-        right: 0;
-        top: 0;
-    }
-
-    .hero-callout--bottom .hero-callout__line {
-        right: 24px;
-        top: 24px;
-        width: 150px;
-    }
-
-    .hero-callout--bottom .hero-callout__text {
-        right: 24px;
-        bottom: -12px;
-        text-align: left;
-    }
-}
-
-
-
-
 /* мобилка <= 768px */
 @media (max-width: 768px) {
     :root {
@@ -109,7 +11,7 @@
     }
 
 
-    /* mob : типографика */
+    /* типографика */
     .text-h1 {
         font-size: 37px;
     }
@@ -132,7 +34,7 @@
     }
 
 
-    /* mob : ui */
+    /* ui */
     .nav {
         display: none;
     }
@@ -142,7 +44,7 @@
     }
 
 
-    /* mob : хедер */
+    /* хедер */
     .header__logo {
         padding: 0 20px;
         gap: 0;
@@ -157,7 +59,7 @@
     }
 
 
-    /* mob : футер */
+    /* футер */
     .footer {
         min-height: 330px;
         padding: 48px 16px 48px;
@@ -188,7 +90,9 @@
     }
 
 
-    /* mob : I. hero-блок */
+
+
+    /* I. hero-блок */
     .hero-screen {
         --planet-main-size: clamp(280px, 78vw, 520px);
         --mob-hero-shift: clamp(32px, 6svh, 72px);
@@ -201,15 +105,15 @@
         border-radius: 0 0 var(--radius-large-mobile) var(--radius-large-mobile);
     }
 
-    /* mob : планеты */
+    /* планеты */
     .hero-screen__planet--main {
         top: calc(50% - var(--mob-hero-shift));
     }
     .hero-screen__planet--small {
-        top: calc(50% + var(--planet-main-size) * 0.35 - var(--mob-hero-shift));
+        top: calc(50% + var(--planet-main-size) * 0.42 - var(--mob-hero-shift));
     }
 
-    /* mob : логотип + описание */
+    /* логотип + описание */
     .hero-screen__content {
         position: absolute;
         inset: 0;
@@ -222,12 +126,12 @@
         transform: none;
     }
 
-    /* mob : логотип */
+    /* логотип */
     .hero-screen__logo--mobile {
         display: block;
         position: absolute;
         left: 24px;
-        top: calc(45% - var(--mob-hero-shift));
+        top: calc(48% - var(--mob-hero-shift));
         transform: translateY(-50%);
 
         width: clamp(240px, 88vw, 300px);
@@ -239,12 +143,12 @@
         display: none;
     }
 
-    /* mob : описание лабы */
+    /* описание лабы */
     .hero-screen__lead {
         position: absolute;
         left: 24px;
         right: 24px;
-        bottom: 72px;
+        bottom: 80px;
 
         width: auto;
         max-width: 348px;
@@ -256,7 +160,7 @@
     }
 
 
-    /* mob : пунктики с подписями */
+    /* пунктики с подписями */
     .hero-callout {
         width: 170px;
         height: 107px;
@@ -268,7 +172,7 @@
         max-width: 150px;
     }
 
-    /* mob : верхний правый пункт */
+    /* верхний правый пункт */
     .hero-callout--top {
         left: auto;
         right: 32px;
@@ -292,7 +196,7 @@
         text-align: left;
     }
     
-    /* mob : нижний левый пункт */
+    /* нижний левый пункт */
     .hero-callout--bottom {
         left: 32px;
         right: auto;
@@ -313,7 +217,7 @@
 
     .hero-callout--bottom .hero-callout__text {
         left: -4px;
-        top: 12px;
+        top: 15px;
         text-align: left;
     }
 
@@ -329,5 +233,92 @@
         grid-template-columns: 1fr 1fr;
         grid-auto-flow: row;
         gap: 12px;
+    }
+
+
+
+
+    /* II. о нас */
+    .about-preview__inner {
+        row-gap: 32px;
+    }
+    
+    /* заголовок */
+    .about-preview__title {
+        grid-column: 1 / 5;
+        grid-row: auto;
+    }
+
+    /* утп */
+    .about-preview__stats {
+        grid-column: 1 / 5;
+        grid-row: auto;
+
+        display: grid;
+        grid-template-columns: 1fr;
+        row-gap: 16px;
+
+        margin-top: -4px;
+    }
+
+    .about-preview__stat {
+        margin: 0;
+        width: 100%;
+    }
+
+    .about-preview__stat:nth-child(1) {
+        grid-column: 1 / -1;
+        justify-self: stretch;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .about-preview__stat:nth-child(2) {
+        grid-column: 1 / -1;
+        justify-self: stretch;
+        align-items: flex-end;
+        text-align: right;
+    }
+
+    .about-preview__stat:nth-child(3) {
+        grid-column: 1 / -1;
+        justify-self: stretch;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .about-preview__stat--end {
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .about-preview__stat-line {
+        white-space: normal;
+    }
+
+    /* описание + миссия */
+    .about-preview__content {
+        grid-column: 1 / 5;
+        grid-row: auto;
+        grid-template-columns: 1fr;
+        row-gap: 32px;
+    }
+        
+    .about-preview__block,
+    .about-preview__block--mission {
+        grid-column: 1 / 5;
+        flex-direction: column; gap: 8px;
+    }
+    
+    .about-preview__text,
+    .about-preview__block--mission .about-preview__text {
+        max-width: none;
+    }
+        
+    /* ста */ .about-preview__button {
+        grid-column: 1 / 5;
+        grid-row: auto;
+        justify-self: stretch;
+        margin-top: 8px;
     }
 }

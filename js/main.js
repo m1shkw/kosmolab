@@ -1,3 +1,114 @@
 document.addEventListener("DOMContentLoaded", () => {
     console.log("KOSMOLAB site loaded");
 });
+
+
+// scramble эффект : рандом набор символов
+(() => {
+    const SCRAMBLE_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+-/#$%&";
+    const ASSEMBLE_MIN = 600;
+    const ASSEMBLE_MAX = 900;
+    const HOLD_MS = 2500;
+    const GAP_MS = 200;
+
+    const randChar = () =>
+        SCRAMBLE_CHARS[Math.floor(Math.random() * SCRAMBLE_CHARS.length)];
+    const randDuration = () =>
+        ASSEMBLE_MIN + Math.random() * (ASSEMBLE_MAX - ASSEMBLE_MIN);
+    const delay = (ms) => new Promise((res) => setTimeout(res, ms));
+
+    // out — рассыпать , in — собрать в исходник
+    function runPhase(el, mode, duration) {
+        return new Promise((resolve) => {
+            const text = el.dataset.scrambleText || el.textContent;
+            const len = text.length;
+            const start = performance.now();
+
+            function frame(now) {
+                if (!el.__scrambleActive) {
+                    el.textContent = text;
+                    resolve();
+                    return;
+                }
+
+                const p = Math.min(1, (now - start) / duration);
+                let out = "";
+
+                for (let i = 0; i < len; i++) {
+                    const ch = text[i];
+                    if (ch === " ") {
+                        out += " ";
+                        continue;
+                    }
+                    const settle = i / len; // стаггер слева направо
+                    if (mode === "in") {
+                        out += p >= settle ? ch : randChar();
+                    } else {
+                        out += p >= settle ? randChar() : ch;
+                    }
+                }
+
+                el.textContent = out;
+
+                if (p < 1) {
+                    requestAnimationFrame(frame);
+                } else {
+                    el.textContent = mode === "in" ? text : out;
+                    resolve();
+                }
+            }
+
+            requestAnimationFrame(frame);
+        });
+    }
+
+    async function loop(el) {
+        while (el.__scrambleActive) {
+            await runPhase(el, "in", randDuration());
+            if (!el.__scrambleActive) break;
+            await delay(HOLD_MS);
+            if (!el.__scrambleActive) break;
+            await runPhase(el, "out", randDuration());
+            if (!el.__scrambleActive) break;
+            await delay(GAP_MS);
+        }
+    }
+
+    function start(el) {
+        if (el.__scrambleActive) return;
+        el.__scrambleActive = true;
+        loop(el);
+    }
+
+    function stop(el) {
+        el.__scrambleActive = false;
+        el.textContent = el.dataset.scrambleText || el.textContent;
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const targets = document.querySelectorAll("[data-scramble-text]");
+        if (!targets.length) return;
+
+        const reduceMotion = window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches;
+        if (reduceMotion) return; // статичный текст
+
+        if (!("IntersectionObserver" in window)) {
+            targets.forEach(start); // фолбэк
+            return;
+        }
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) start(entry.target);
+                    else stop(entry.target);
+                });
+            },
+            { threshold: 0.2 }
+        );
+
+        targets.forEach((el) => observer.observe(el));
+    });
+})();
