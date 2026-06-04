@@ -209,7 +209,7 @@
     .hero-callout__text {
         white-space: normal;
         width: 120px;
-        max-width: 150px;
+        max-width: 115px;
     }
 
     /* верхний правый пункт */
@@ -360,5 +360,63 @@
         grid-row: auto;
         justify-self: stretch;
         margin-top: 8px;
+    }
+
+
+
+
+
+    /* ===== Тизер каталога — мобайл: сетка 2×2 вместо бегущей строки ===== */
+
+    /* отключаем marquee: лента больше не обрезается и не едет */
+    .catalog-teaser__marquee {
+        overflow: visible;
+    }
+
+    .catalog-teaser__track {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 16px;
+        row-gap: 48px;
+        width: auto;          /* сброс width: max-content с десктопа */
+        animation: none;      /* выключаем бесконечную прокрутку */
+    }
+
+    /* прячем дубликаты, которые нужны только для desktop-ленты */
+    .catalog-teaser__planet[aria-hidden="true"] {
+        display: none;
+    }
+
+    /* крупные планеты, влезающие в колонку, по центру с подписью */
+    .catalog-teaser__planet {
+        gap: 12px;
+    }
+
+    .catalog-teaser__planet-image {
+        width: 100%;
+        max-width: clamp(140px, 44vw, 220px);
+    }
+
+    /* мерч остаётся ниже, как был (горизонтальная прокрутка со снапом) */
+    .catalog-teaser__merch {
+        display: flex;
+        grid-template-columns: none;
+        column-gap: var(--grid-gap);
+        margin-top: 48px;
+
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 4px;
+    }
+
+    .catalog-teaser__card {
+        flex: 0 0 72%;
+        scroll-snap-align: center;
+    }
+
+    .catalog-teaser__button {
+        width: 100%;
+        margin-top: 40px;
     }
 }

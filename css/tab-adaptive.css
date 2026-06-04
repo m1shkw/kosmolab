@@ -217,4 +217,22 @@
         justify-self: center;
         margin-top: 8px;
     }
+
+
+
+
+    /* ===== Тизер каталога — планшет ===== */
+    .catalog-teaser {
+        --teaser-planet: 240px;
+        --teaser-gap: 56px;
+    }
+
+    .catalog-teaser__merch {
+        column-gap: var(--grid-gap);
+        margin-top: 56px;
+    }
+
+    .catalog-teaser__button {
+        margin-top: 56px;
+    }
 }

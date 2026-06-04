@@ -25,7 +25,7 @@ main {
 
 .section {
     padding-top: var(--section-space);
-    padding-bottom: var(--section-space);
+    padding-bottom: 0;
 }
 
 .is-hidden {
@@ -119,10 +119,6 @@ main {
     -webkit-backdrop-filter: blur(var(--blur-default));
 
     color: rgba(var(--color-black-rgb), 0.35);
-    font-family: var(--font-main);
-    font-size: 12px;
-    line-height: 1;
-    text-transform: uppercase;
 }
 
 .nav__link.is-active {
@@ -155,11 +151,6 @@ main {
     -webkit-backdrop-filter: blur(var(--blur-default));
 
     color: var(--color-black);
-    font-family: var(--font-main);
-    font-size: 12px;
-    line-height: 1;
-    text-transform: uppercase;
-
     white-space: nowrap;
 }
 
@@ -275,12 +266,6 @@ main {
     flex-direction: column;
     align-items: center;
     gap: 32px;
-
-    font-family: var(--font-main);
-    font-size: 24px;
-    line-height: 1;
-    font-weight: 500;
-    text-transform: uppercase;
 }
 
 .footer__meta {
@@ -291,12 +276,6 @@ main {
     display: flex;
     align-items: center;
     gap: 72px;
-
-    font-family: var(--font-main);
-    font-size: 12px;
-    line-height: 1;
-    font-weight: 500;
-    text-transform: uppercase;
 }
 
 .footer__credits {
@@ -307,12 +286,6 @@ main {
     display: flex;
     align-items: center;
     gap: 72px;
-
-    font-family: var(--font-main);
-    font-size: 12px;
-    line-height: 1;
-    font-weight: 500;
-    text-transform: uppercase;
 }
 
 
@@ -660,8 +633,148 @@ main {
     grid-column: 1 / 13;
     grid-row: 3;
     justify-self: center;
-    margin-top: 8px;
 
     color: var(--color-black);
     border-color: var(--color-black);
+}
+
+
+
+
+
+
+/* III. тизер каталога */
+.catalog-teaser {
+    background-color: var(--color-light-gray);
+    --teaser-planet: 340px;
+    --teaser-gap: 75px;
+}
+
+/* бегущая строка планет */
+.catalog-teaser__marquee {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    overflow: hidden;
+}
+.catalog-teaser__track {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--teaser-gap);
+
+    width: max-content;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    animation: catalog-teaser-marquee 25s linear infinite;
+    will-change: transform;
+}
+
+@keyframes catalog-teaser-marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+
+
+.catalog-teaser__planet {
+    flex: 0 0 var(--teaser-planet);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+}
+
+.catalog-teaser__planet-image {
+    position: relative;
+    width: var(--teaser-planet);
+    aspect-ratio: 1 / 1;
+}
+
+.catalog-teaser__planet-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+
+/* ховер лайт планет */
+.catalog-teaser__planet-image .is-light {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.catalog-teaser__planet:hover .is-light {
+    opacity: 1;
+}
+
+.catalog-teaser__planet-name {
+    color: var(--color-black);
+}
+
+
+/* мерч */
+.catalog-teaser__merch {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: calc(var(--grid-gap));
+    margin-top: 48px;
+}
+
+.catalog-teaser__card {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+}
+
+.catalog-teaser__card-frame {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: var(--radius-medium);
+    background-color: var(--color-light-gray);
+}
+
+.catalog-teaser__card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    /* дефолт : зум + чб */
+    transform: scale(2.1);
+    filter: grayscale(1);
+    transition: transform 0.7s ease, filter 0.7s ease;
+}
+
+.catalog-teaser__card:hover .catalog-teaser__card-image {
+    transform: scale(1);
+    filter: grayscale(0);
+}
+
+.catalog-teaser__card-name {
+    color: var(--color-black);
+}
+
+/* ста-кнопка */
+.catalog-teaser__button {
+    display: flex;
+    justify-self: center;
+    width: max-content;
+
+    margin: 48px;
+
+    color: var(--color-black);
+    border-color: var(--color-black);
+}
+
+/* уважение к prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+    .catalog-teaser__track {
+        animation: none;
+    }
 }

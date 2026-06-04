@@ -23,23 +23,23 @@
             </a>
 
             <nav class="nav" aria-label="Основная навигация">
-                <a class="nav__link is-active" href="./index.html">Главная</a>
-                <a class="nav__link" href="./catalog.html">Каталог</a>
-                <a class="nav__link" href="./events.html">Мероприятия</a>
-                <a class="nav__link" href="./about.html">О нас</a>
-                <a class="nav__link" href="./guide.html">Руководство</a>
+                <a class="nav__link text-microcopy-medium is-active" href="./index.html">Главная</a>
+                <a class="nav__link text-microcopy-medium" href="./catalog.html">Каталог</a>
+                <a class="nav__link text-microcopy-medium" href="./events.html">Мероприятия</a>
+                <a class="nav__link text-microcopy-medium" href="./about.html">О нас</a>
+                <a class="nav__link text-microcopy-medium" href="./guide.html">Руководство</a>
             </nav>
 
-            <button class="button mobile-menu-button" type="button" aria-expanded="false" aria-controls="mobileNav">
+            <button class="button mobile-menu-button text-microcopy-medium" type="button" aria-expanded="false" aria-controls="mobileNav">
                 Меню
             </button>
 
             <nav class="mobile-nav" id="mobileNav" aria-label="Мобильная навигация">
-                <a class="mobile-nav__link button is-active" href="./index.html">Главная</a>
-                <a class="mobile-nav__link button" href="./catalog.html">Каталог</a>
-                <a class="mobile-nav__link button" href="./events.html">Мероприятия</a>
-                <a class="mobile-nav__link button" href="./about.html">О нас</a>
-                <a class="mobile-nav__link button" href="./guide.html">Руководство</a>
+                <a class="mobile-nav__link button text-microcopy-medium is-active" href="./index.html">Главная</a>
+                <a class="mobile-nav__link button text-microcopy-medium" href="./catalog.html">Каталог</a>
+                <a class="mobile-nav__link button text-microcopy-medium" href="./events.html">Мероприятия</a>
+                <a class="mobile-nav__link button text-microcopy-medium" href="./about.html">О нас</a>
+                <a class="mobile-nav__link button text-microcopy-medium" href="./guide.html">Руководство</a>
             </nav>
         </header>
 
@@ -55,11 +55,15 @@
                         <div class="hero-callout hero-callout--top">
                             <span class="hero-callout__circle"></span>
                             <img class="hero-callout__line" src="./assets/images/hero/line-top-right.svg" alt="" aria-hidden="true">
-                            <span class="hero-callout__text">Домашние системы нового поколения</span>
+                            <span class="hero-callout__text" data-scramble-text="Домашние системы нового поколения">
+                                Домашние системы нового поколения
+                            </span>
                         </div>
 
                         <div class="hero-callout hero-callout--bottom">
-                            <span class="hero-callout__text">Разработка миниатюрных биом</span>
+                            <span class="hero-callout__text" data-scramble-text="Разработка миниатюрных биом">
+                                Разработка миниатюрных биом
+                            </span>
                             <img class="hero-callout__line" src="./assets/images/hero/line-bottom-left.svg" alt="" aria-hidden="true">
                             <span class="hero-callout__circle"></span>
                         </div>
@@ -74,11 +78,11 @@
                     </div>
 
                     <div class="hero-screen__buttons">
-                        <a class="button button--solid" href="./catalog.html">
+                        <a class="button button--solid text-microcopy-medium" href="./catalog.html">
                             Каталог →
                         </a>
 
-                        <a class="button button--outline" href="./catalog.html#constructor">
+                        <a class="button button--outline text-microcopy-medium" href="./catalog.html#constructor">
                             Конструктор →
                         </a>
                     </div>
@@ -119,31 +123,125 @@
                             </div>
                         </div>
 
-                        <a class="button button--outline about-preview__button" href="./about.html">
+                        <a class="button button--outline text-microcopy-medium about-preview__button" href="./about.html">
                             Узнать больше →
                         </a>
                     </div>
+                </div>
+            </section>
+
+            <section class="catalog-teaser section">
+                <div class="container">
+                    <div class="catalog-teaser__marquee">
+                        <ul class="catalog-teaser__track">
+                            <li class="catalog-teaser__planet">
+                                <div class="catalog-teaser__planet-image">
+                                    <img src="./assets/images/planets/planet-1.png" alt="">
+                                    <img class="is-light" src="./assets/images/planets/planet-1-light.png" alt="" aria-hidden="true">
+                                </div>
+                                <span class="catalog-teaser__planet-name text-caption">AERIS</span>
+                            </li>
+                            <li class="catalog-teaser__planet">
+                                <div class="catalog-teaser__planet-image">
+                                    <img src="./assets/images/planets/planet-2.png" alt="">
+                                    <img class="is-light" src="./assets/images/planets/planet-2-light.png" alt="" aria-hidden="true">
+                                </div>
+                                <span class="catalog-teaser__planet-name text-caption">EREBOS</span>
+                            </li>
+                            <li class="catalog-teaser__planet">
+                                <div class="catalog-teaser__planet-image">
+                                    <img src="./assets/images/planets/planet-3.png" alt="">
+                                    <img class="is-light" src="./assets/images/planets/planet-3-light.png" alt="" aria-hidden="true">
+                                </div>
+                                <span class="catalog-teaser__planet-name text-caption">ALBA</span>
+                            </li>
+                            <li class="catalog-teaser__planet">
+                                <div class="catalog-teaser__planet-image">
+                                    <img src="./assets/images/planets/planet-4.png" alt="">
+                                    <img class="is-light" src="./assets/images/planets/planet-4-light.png" alt="" aria-hidden="true">
+                                </div>
+                                <span class="catalog-teaser__planet-name text-caption">AQUALIS</span>
+                            </li>
+
+                            <!-- дубликат поанет бегущей строки -->
+                            <li class="catalog-teaser__planet" aria-hidden="true">
+                                <div class="catalog-teaser__planet-image">
+                                    <img src="./assets/images/planets/planet-1.png" alt="">
+                                    <img class="is-light" src="./assets/images/planets/planet-1-light.png" alt="">
+                                </div>
+                                <span class="catalog-teaser__planet-name text-caption">AERIS</span>
+                            </li>
+                            <li class="catalog-teaser__planet" aria-hidden="true">
+                                <div class="catalog-teaser__planet-image">
+                                    <img src="./assets/images/planets/planet-2.png" alt="">
+                                    <img class="is-light" src="./assets/images/planets/planet-2-light.png" alt="">
+                                </div>
+                                <span class="catalog-teaser__planet-name text-caption">EREBOS</span>
+                            </li>
+                            <li class="catalog-teaser__planet" aria-hidden="true">
+                                <div class="catalog-teaser__planet-image">
+                                    <img src="./assets/images/planets/planet-3.png" alt="">
+                                    <img class="is-light" src="./assets/images/planets/planet-3-light.png" alt="">
+                                </div>
+                                <span class="catalog-teaser__planet-name text-caption">ALBA</span>
+                            </li>
+                            <li class="catalog-teaser__planet" aria-hidden="true">
+                                <div class="catalog-teaser__planet-image">
+                                    <img src="./assets/images/planets/planet-4.png" alt="">
+                                    <img class="is-light" src="./assets/images/planets/planet-4-light.png" alt="">
+                                </div>
+                                <span class="catalog-teaser__planet-name text-caption">AQUALIS</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="catalog-teaser__merch">
+                        <figure class="catalog-teaser__card">
+                            <div class="catalog-teaser__card-frame">
+                                <img class="catalog-teaser__card-image" src="./assets/images/merch/1-box.png" alt="Набор">
+                            </div>
+                            <figcaption class="catalog-teaser__card-name text-caption">НАБОР</figcaption>
+                        </figure>
+
+                        <figure class="catalog-teaser__card">
+                            <div class="catalog-teaser__card-frame">
+                                <img class="catalog-teaser__card-image" src="./assets/images/merch/2-notebook.png" alt="Блокнот">
+                            </div>
+                            <figcaption class="catalog-teaser__card-name text-caption">БЛОКНОТ</figcaption>
+                        </figure>
+
+                        <figure class="catalog-teaser__card">
+                            <div class="catalog-teaser__card-frame">
+                                <img class="catalog-teaser__card-image" src="./assets/images/merch/3-keychain.png" alt="Брелок">
+                            </div>
+                            <figcaption class="catalog-teaser__card-name text-caption">БРЕЛОК</figcaption>
+                        </figure>
+                    </div>
+
+                    <a class="button button--outline text-microcopy-medium catalog-teaser__button" href="./catalog.html">
+                        Перейти к каталогу →
+                    </a>
                 </div>
             </section>
         </main>
 
         <footer class="footer">
             <nav class="footer__nav" aria-label="Навигация в подвале">
-                <a href="./index.html">Главная</a>
-                <a href="./catalog.html">Каталог</a>
-                <a href="./guide.html">Руководство</a>
-                <a href="./events.html">Мероприятия</a>
-                <a href="./about.html">О&nbsp;нас</a>
+                <a class="text-caption" href="./index.html">Главная</a>
+                <a class="text-caption" href="./catalog.html">Каталог</a>
+                <a class="text-caption" href="./guide.html">Руководство</a>
+                <a class="text-caption" href="./events.html">Мероприятия</a>
+                <a class="text-caption" href="./about.html">О&nbsp;нас</a>
             </nav>
 
             <div class="footer__meta">
-                <span>АП&nbsp;4М&nbsp;2026</span>
-                <span>Рачинская&nbsp;М.&nbsp;Ю.</span>
+                <span class="text-microcopy-medium">АП&nbsp;4М&nbsp;2026</span>
+                <span class="text-microcopy-medium">Рачинская&nbsp;М.&nbsp;Ю.</span>
             </div>
 
             <div class="footer__credits">
-                <span>Куратор</span>
-                <span>Умнова&nbsp;Е.&nbsp;А.</span>
+                <span class="text-microcopy-medium">Куратор</span>
+                <span class="text-microcopy-medium">Умнова&nbsp;Е.&nbsp;А.</span>
             </div>
         </footer>
     </div>
