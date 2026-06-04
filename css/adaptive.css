@@ -191,6 +191,7 @@
     /* mob : I. hero-блок */
     .hero-screen {
         --planet-main-size: clamp(280px, 78vw, 520px);
+        --mob-hero-shift: clamp(32px, 6svh, 72px);
 
         height: 100vh;
         height: 100svh;
@@ -198,6 +199,14 @@
         max-height: 950px;
 
         border-radius: 0 0 var(--radius-large-mobile) var(--radius-large-mobile);
+    }
+
+    /* mob : планеты */
+    .hero-screen__planet--main {
+        top: calc(50% - var(--mob-hero-shift));
+    }
+    .hero-screen__planet--small {
+        top: calc(50% + var(--planet-main-size) * 0.35 - var(--mob-hero-shift));
     }
 
     /* mob : логотип + описание */
@@ -218,7 +227,7 @@
         display: block;
         position: absolute;
         left: 24px;
-        top:45%;
+        top: calc(45% - var(--mob-hero-shift));
         transform: translateY(-50%);
 
         width: clamp(240px, 88vw, 300px);
@@ -235,7 +244,7 @@
         position: absolute;
         left: 24px;
         right: 24px;
-        bottom: 96px;
+        bottom: 72px;
 
         width: auto;
         max-width: 348px;
@@ -263,9 +272,8 @@
     .hero-callout--top {
         left: auto;
         right: 32px;
-        top: calc(50% - 266px);
+        top: calc(50% - 246px - var(--mob-hero-shift));
     }
-
 
     .hero-callout--top .hero-callout__circle {
         left: 0;
@@ -289,7 +297,7 @@
         left: 32px;
         right: auto;
         top: auto;
-        bottom: calc(50% - 230px);
+        bottom: calc(50% - 230px + var(--mob-hero-shift));
     }
 
     .hero-callout--bottom .hero-callout__circle {
