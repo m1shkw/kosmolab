@@ -1,3 +1,103 @@
+
+/* планшет 1024px - 769px */
+@media (min-width: 769px) and (max-width: 1024px) {
+    
+    /* tab : хедер */
+    .nav {
+        display: none;
+    }
+
+    .button.mobile-menu-button {
+        display: inline-flex;
+    }
+
+    .header__logo-icon {
+        height: 23px;
+    }
+
+
+    /* tab : I. hero-блок */
+    
+    /* tab : логотип + описание */
+    .hero-screen__content {
+        gap: 24px;
+        max-width: calc(100% - 64px);
+    }
+
+    .hero-screen__logo--tablet {
+        display: block;
+        width: clamp(320px, 38vw, 420px);
+        transform: translateY(16px);
+    }
+    .hero-screen__logo--desktop,
+    .hero-screen__logo--mobile {
+        display: none;
+    }
+
+
+    /* tab : пунктики с подписями */
+    .hero-callout {
+        width: 300px;
+    }
+
+    .hero-callout__text {
+        white-space: normal;
+        max-width: 150px;
+    }
+
+    /* tab : верхний правый пункт */
+    .hero-callout--top {
+        left: auto;
+        right: 72px;
+        top: calc(50% - 300px);
+    }
+
+    .hero-callout--top .hero-callout__circle {
+        left: 0;
+        bottom: 0;
+    }
+
+    .hero-callout--top .hero-callout__line {
+        left: 24px;
+        bottom: 24px;
+        width: 150px;
+    }
+
+    .hero-callout--top .hero-callout__text {
+        left: 64px;
+        top: -12px;
+        text-align: left;
+    }
+
+    /* tab : нижний левый пункт */
+    .hero-callout--bottom {
+        left: 72px;
+        right: auto;
+        bottom: calc(50% - 300px);
+    }
+
+    .hero-callout--bottom .hero-callout__circle {
+        right: 0;
+        top: 0;
+    }
+
+    .hero-callout--bottom .hero-callout__line {
+        right: 24px;
+        top: 24px;
+        width: 150px;
+    }
+
+    .hero-callout--bottom .hero-callout__text {
+        right: 24px;
+        bottom: -12px;
+        text-align: left;
+    }
+}
+
+
+
+
+/* мобилка <= 768px */
 @media (max-width: 768px) {
     :root {
         --grid-columns: 4;
@@ -8,6 +108,31 @@
         --section-space: 60px;
     }
 
+
+    /* mob : типографика */
+    .text-h1 {
+        font-size: 37px;
+    }
+
+    .text-h2 {
+        font-size: 32px;
+    }
+
+    .text-caption {
+        font-size: 21px;
+    }
+
+    .text-body {
+        font-size: 16px;
+    }
+
+    .text-microcopy,
+    .text-microcopy-medium {
+        font-size: 12px;
+    }
+
+
+    /* mob : ui */
     .nav {
         display: none;
     }
@@ -17,10 +142,26 @@
     }
 
 
+    /* mob : хедер */
+    .header__logo {
+        padding: 0 20px;
+        gap: 0;
+    }
+
+    .header__logo-text {
+        display: none;
+    }
+
+    .header__logo-icon {
+        height: 23px;
+    }
+
+
+    /* mob : футер */
     .footer {
         min-height: 330px;
         padding: 48px 16px 20px;
-        border-radius: 48px 48px 0 0;
+        border-radius: 32px 32px 0 0;
     }
 
     .footer__nav {
@@ -44,5 +185,138 @@
 
     .footer__credits {
         margin-top: 12px;
+    }
+
+
+    /* mob : I. hero-блок */
+    .hero-screen {
+        --planet-main-size: clamp(280px, 78vw, 520px);
+
+        max-height: 950px;
+
+        border-radius: 0 0 var(--radius-large-mobile) var(--radius-large-mobile);
+    }
+
+    /* mob : логотип + описание */
+    .hero-screen__content {
+        position: absolute;
+        inset: 0;
+
+        display: block;
+
+        width: auto;
+        max-width: none;
+
+        transform: none;
+    }
+
+    /* mob : логотип */
+    .hero-screen__logo--mobile {
+        display: block;
+        position: absolute;
+        left: 24px;
+        top:45%;
+        transform: translateY(-50%);
+
+        width: clamp(240px, 88vw, 300px);
+        height: auto;
+    }
+
+    .hero-screen__logo--desktop,
+    .hero-screen__logo--tablet {
+        display: none;
+    }
+
+    /* mob : описание лабы */
+    .hero-screen__lead {
+        position: absolute;
+        left: 24px;
+        right: 24px;
+        bottom: 96px;
+
+        width: auto;
+        max-width: 348px;
+        margin: 0;
+
+        font-size: 21px;
+        line-height: 1.1;
+        letter-spacing: -0.06em;
+    }
+
+
+    /* mob : пунктики с подписями */
+    .hero-callout {
+        width: 170px;
+        height: 107px;
+    }
+
+    .hero-callout__text {
+        white-space: normal;
+        width: 120px;
+        max-width: 150px;
+    }
+
+    /* mob : верхний правый пункт */
+    .hero-callout--top {
+        left: auto;
+        right: 32px;
+        top: calc(50% - 266px);
+    }
+
+
+    .hero-callout--top .hero-callout__circle {
+        left: 0;
+        bottom: 0;
+    }
+
+    .hero-callout--top .hero-callout__line {
+        left: 24px;
+        bottom: 24px;
+        width: 150px;
+    }
+
+    .hero-callout--top .hero-callout__text {
+        left: 64px;
+        top: -7px;
+        text-align: left;
+    }
+    
+    /* mob : нижний левый пункт */
+    .hero-callout--bottom {
+        left: 32px;
+        right: auto;
+        top: auto;
+        bottom: calc(50% - 230px);
+    }
+
+    .hero-callout--bottom .hero-callout__circle {
+        right: 0;
+        top: 0;
+    }
+
+    .hero-callout--bottom .hero-callout__line {
+        right: 24px;
+        top: 24px;
+        width: 150px;
+    }
+
+    .hero-callout--bottom .hero-callout__text {
+        left: -4px;
+        top: 12px;
+        text-align: left;
+    }
+
+
+    /* mob : кнопки */
+    .hero-screen__buttons {
+        left: 16px;
+        right: 16px;
+        bottom: 16px;
+        transform: none;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-auto-flow: row;
+        gap: 12px;
     }
 }

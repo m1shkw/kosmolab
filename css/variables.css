@@ -32,7 +32,7 @@
     --header-offset: 32px;
     --section-space: 80px;
 
-    --color-black: #000000;
+    --color-black: #0E0F10;
     --color-white: #FFFFFF;
     --color-light-gray: #E6EBED;
     --color-blue: #C2D8EE;
@@ -44,10 +44,11 @@
     --glass-white: rgba(var(--color-white-rgb), 0.5);
     --glass-black-text: rgba(var(--color-black-rgb), 0.35);
 
-    --blur-default: 16px;
+    --blur-default: 5px;
 
     --radius-small: 16px;
     --radius-medium: 24px;
+    --radius-large-mobile: 32px;
     --radius-large: 48px;
     --radius-pill: 999px;
 
