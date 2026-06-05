@@ -157,3 +157,95 @@ document.addEventListener("DOMContentLoaded", () => {
         targets.forEach((el) => observer.observe(el));
     });
 })();
+
+
+
+
+/* слайдер мероприятий */
+(() => {
+    function initSlider(root) {
+        const track = root.querySelector(".events-preview__track");
+        const slides = root.querySelectorAll(".events-preview__slide");
+
+        if (!track || slides.length === 0) return;
+
+        const prev = root.querySelector(".events-preview__arrow--prev");
+        const next = root.querySelector(".events-preview__arrow--next");
+
+        const DELAY = 4500;
+        let index = 0;
+        let timer = null;
+
+        function goToSlide(i) {
+            index = (i + slides.length) % slides.length;
+
+            const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+            const step = root.clientWidth + gap;
+
+            track.style.transform = "translateX(" + (-index * step) + "px)";
+        }
+
+        function nextSlide() {
+            goToSlide(index + 1);
+        }
+
+        function prevSlide() {
+            goToSlide(index - 1);
+        }
+
+        function startAuto() {
+            stopAuto();
+
+            timer = setInterval(() => {
+                if (root.offsetParent === null) return;
+                nextSlide();
+            }, DELAY);
+        }
+
+        function stopAuto() {
+            if (timer) clearInterval(timer);
+            timer = null;
+        }
+
+        function resetAuto() {
+            startAuto();
+        }
+
+        if (next) {
+            next.addEventListener("click", () => {
+                nextSlide();
+                resetAuto();
+            });
+        }
+
+        if (prev) {
+            prev.addEventListener("click", () => {
+                prevSlide();
+                resetAuto();
+            });
+        }
+
+        window.addEventListener("resize", () => goToSlide(index));
+
+        goToSlide(0);
+        startAuto();
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll(".events-preview__slider").forEach(initSlider);
+    });
+})();
+
+document.addEventListener("DOMContentLoaded", () => {
+    const cards = document.querySelectorAll(
+        ".events-preview__slider--mobile .events-preview__card"
+    );
+
+    if (!cards.length) return;
+
+    cards.forEach((card) => {
+        card.addEventListener("click", () => {
+            card.classList.toggle("is-overlay-hidden");
+        });
+    });
+});

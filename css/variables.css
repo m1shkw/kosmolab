@@ -43,6 +43,7 @@
     --color-white-rgb: 255, 255, 255;
 
     --glass-white: rgba(var(--color-white-rgb), 0.5);
+    --glass-black: rgba(var(--color-black-rgb), 0.6);
     --glass-black-text: rgba(var(--color-black-rgb), 0.35);
 
     --blur-default: 5px;
