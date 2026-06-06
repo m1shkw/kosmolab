@@ -463,6 +463,20 @@ main {
     color: var(--color-light-gray);
 }
 
+/* нет переноса подписей */
+.hero-callout__text--mobile {
+    display: none;
+}
+
+.hero-callout__text-line {
+    display: inline;
+    white-space: nowrap;
+}
+
+.hero-callout__text-line + .hero-callout__text-line::before {
+    content: " ";
+}
+
 
 /* верхний правый пункт */
 .hero-callout--top {

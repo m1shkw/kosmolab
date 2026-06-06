@@ -13,7 +13,7 @@
 
     /* типографика */
     .text-h1 {
-        font-size: 37px;
+        font-size: 35px;
     }
 
     .text-h2 {
@@ -219,9 +219,27 @@
     }
 
     .hero-callout__text {
+        width: 200px;
+        max-width: none;
         white-space: normal;
-        width: 120px;
-        max-width: 115px;
+    }
+
+    /* перенос подписей */
+    .hero-callout__text--desktop-tablet {
+        display: none;
+    }
+
+    .hero-callout__text--mobile {
+        display: block;
+    }
+
+    .hero-callout__text-line {
+        display: block;
+        white-space: nowrap;
+    }
+
+    .hero-callout__text-line + .hero-callout__text-line::before {
+        content: none;
     }
 
     /* верхний правый пункт */
@@ -371,7 +389,7 @@
         grid-column: 1 / 5;
         grid-row: auto;
         justify-self: stretch;
-        margin-top: 8px;
+        margin-top: 0;
     }
 
 
@@ -427,7 +445,7 @@
     .catalog-teaser__button {
         width: 100%;
         max-width: 100%;
-        margin: 48px 0 0;
+        margin: 32px 0 0;
         justify-content: center;
     }
 
@@ -560,11 +578,6 @@
         background-position: 80% center;
     }
 
-    /* ста-кнопка */
-    .events-preview__button {
-        width: 100%;
-    }
-
     /* стрелки */
     .events-preview__arrow {
         position: absolute;
@@ -600,5 +613,11 @@
 
     .events-preview__arrow--next img {
         transform: rotate(180deg);
+    }
+
+    /* ста-кнопка */
+    .events-preview__button {
+        width: 100%;
+        margin: 32px auto 0;
     }
 }

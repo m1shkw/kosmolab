@@ -92,6 +92,24 @@
         max-width: 150px;
     }
 
+    /* перенос подписей */
+    .hero-callout__text--desktop-tablet {
+        display: block;
+    }
+
+    .hero-callout__text--mobile {
+        display: none;
+    }
+
+    .hero-callout__text-line {
+        display: block;
+        white-space: nowrap;
+    }
+
+    .hero-callout__text-line + .hero-callout__text-line::before {
+        content: none;
+    }
+
     /* верхний правый пункт */
     .hero-callout--top {
         left: auto;
@@ -134,8 +152,9 @@
         width: 150px;
     }
 
-    .hero-callout--bottom .hero-callout__text {
-        right: 24px;
+   .hero-callout--bottom .hero-callout__text {
+        left: 128px;
+        right: auto;
         bottom: -12px;
         text-align: left;
     }
