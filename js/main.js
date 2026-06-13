@@ -480,6 +480,13 @@ document.addEventListener("DOMContentLoaded", () => {
     page.querySelectorAll(".events-preview__arrow").forEach((button) => {
         button.addEventListener("click", (event) => {
             event.stopPropagation();
+
+            const slider = button.closest(".events-preview__slider");
+            if (slider) {
+                slider
+                    .querySelectorAll(".events-preview__card.is-overlay-visible")
+                    .forEach((item) => item.classList.remove("is-overlay-visible"));
+            }
         });
     });
 
@@ -487,7 +494,11 @@ document.addEventListener("DOMContentLoaded", () => {
         card.addEventListener("click", () => {
             if (desktopHoverQuery.matches) return;
 
-            card.classList.toggle("is-overlay-visible");
+            const isOpen = card.classList.contains("is-overlay-visible");
+
+            cards.forEach((item) => item.classList.remove("is-overlay-visible"));
+
+            if (!isOpen) card.classList.add("is-overlay-visible");
         });
     });
 
