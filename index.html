@@ -49,8 +49,16 @@
                     <div class="hero-screen__visual">
                         <img class="hero-screen__bg" src="./assets/images/hero/hero-bg.svg" alt="" aria-hidden="true">
 
-                        <img class="hero-screen__planet hero-screen__planet--main" src="./assets/images/hero/planet-main.png" alt="" aria-hidden="true">
-                        <img class="hero-screen__planet hero-screen__planet--small" src="./assets/images/hero/planet-small.png" alt="" aria-hidden="true">
+                        <video class="hero-screen__planet hero-screen__planet--main hero-screen__planet-video"
+                            autoplay muted loop playsinline preload="metadata"
+                            poster="./assets/images/hero/planet-main.png" aria-hidden="true">
+                            <source src="./assets/videos/planets/planet-main-animation-no-bg.mp4" type="video/mp4">
+                        </video>
+                        <video class="hero-screen__planet hero-screen__planet--small hero-screen__planet-video"
+                            autoplay muted loop playsinline preload="metadata"
+                            poster="./assets/images/hero/planet-small.png" aria-hidden="true">
+                            <source src="./assets/videos/planets/planet-small-animation-no-bg.mp4" type="video/mp4">
+                        </video>
 
                         <div class="hero-callout hero-callout--top">
                             <span class="hero-callout__circle"></span>

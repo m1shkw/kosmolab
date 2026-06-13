@@ -48,6 +48,39 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+/* пауза/воспроизведение видео-планет */
+(() => {
+    const hero = document.querySelector(".hero-screen");
+    if (!hero) return;
+
+    const videos = hero.querySelectorAll(".hero-screen__planet-video");
+    if (!videos.length) return;
+
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion) {
+        videos.forEach((v) => {
+            v.removeAttribute("autoplay");
+            try { v.pause(); v.currentTime = 0; } catch (e) {}
+        });
+        return;
+    }
+
+    const play = () => videos.forEach((v) => {
+        const p = v.play();
+        if (p && typeof p.catch === "function") p.catch(() => {});
+    });
+    const pause = () => videos.forEach((v) => v.pause());
+
+    if (!("IntersectionObserver" in window)) { play(); return; }
+
+    const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => { entry.isIntersecting ? play() : pause(); });
+    }, { threshold: 0.1 });
+
+    io.observe(hero);
+})();
+
+
 // scramble эффект : рандом набор символов
 (() => {
     const SCRAMBLE_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+-/#$%&()£@!?^><,.*;'[]{}";

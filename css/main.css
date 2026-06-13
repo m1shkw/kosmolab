@@ -372,6 +372,12 @@ main {
     transform: translate(-50%, -50%);
 }
 
+/* видео-планеты */
+.hero-screen__planet-video {
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+}
+
 
 /* логотип + описание */
 .hero-screen__content {
@@ -735,7 +741,7 @@ main {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     column-gap: calc(var(--grid-gap));
-    margin-top: 48px;
+    margin-top: 80px;
 }
 
 .catalog-teaser__card {
