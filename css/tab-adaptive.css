@@ -343,7 +343,7 @@
 
 
     /* III. мероприятия */
-    
+
     .events-page .events-preview__card-overlay {
         opacity: 0;
         pointer-events: none;
@@ -353,4 +353,15 @@
         opacity: 1;
         pointer-events: auto;
     }
+
+
+
+
+
+
+
+
+    /* IV. о нас */
+    .about-page__hero-video { height: 420px; }
+    .about-gallery__image { height: 380px; }
 }

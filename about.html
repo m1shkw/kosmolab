@@ -44,12 +44,120 @@
         </header> 
 
         <main>
-            <section class="hero-screen">
-                <div class="hero-screen__inner">
-                    <div class="hero-screen__visual">
-                        
+            <section class="about-page">
+                <div class="container">
+                    <div class="about-page__hero">
+                        <video class="about-page__hero-video" autoplay muted loop playsinline preload="metadata"
+                            poster="./assets/images/space/0-exterior-elongated.png" aria-hidden="true">
+                            <source src="./assets/videos/space/space-video.mp4" type="video/mp4">
+                        </video>
+                        <img class="about-page__hero-image" src="./assets/images/space/0-exterior-elongated.png" alt="" aria-hidden="true">
                     </div>
                 </div>
+
+                <div class="container">
+                    <div class="about-page__info">
+                        <div class="about-preview__inner grid">
+                            <h2 class="about-preview__title text-h1">О нас</h2>
+
+                            <div class="about-preview__stats">
+                                <p class="about-preview__stat">
+                                    <span class="about-preview__stat-line text-microcopy" data-scramble-text="02 ЛАБОРАТОРНЫХ СЕКТОРА">02 ЛАБОРАТОРНЫХ СЕКТОРА</span>
+                                    <span class="about-preview__stat-line text-microcopy" data-scramble-text="ОСНОВАНЫ В 4026 ГОДУ">ОСНОВАНЫ В 4026 ГОДУ</span>
+                                </p>
+                                <p class="about-preview__stat">
+                                    <span class="about-preview__stat-line text-microcopy" data-scramble-text="426 ЗАВЕРШЁННЫХ СБОРОК">426 ЗАВЕРШЁННЫХ СБОРОК</span>
+                                    <span class="about-preview__stat-line text-microcopy" data-scramble-text="06 ЭКСПЕРИМЕНТАЛЬНЫХ СЕРИЙ">06 ЭКСПЕРИМЕНТАЛЬНЫХ СЕРИЙ</span>
+                                </p>
+                                <p class="about-preview__stat about-preview__stat--end">
+                                    <span class="about-preview__stat-line text-microcopy" data-scramble-text="93% АВТОНОМНОЙ">93% АВТОНОМНОЙ</span>
+                                    <span class="about-preview__stat-line text-microcopy" data-scramble-text="СТАБИЛЬНОСТИ">СТАБИЛЬНОСТИ</span>
+                                </p>
+                            </div>
+
+                            <div class="about-preview__content">
+                                <div class="about-preview__block">
+                                    <span class="about-preview__label text-body">KOSMOLAB</span>
+                                    <p class="about-preview__text text-body">Компания основана в&nbsp;4025 году как&nbsp;первая&nbsp;в&nbsp;мире лаборатория по&nbsp;созданию миниатюрных планетарных&nbsp;систем</p>
+                                </div>
+                                <div class="about-preview__block about-preview__block--mission">
+                                    <span class="about-preview__label text-body">Миссия</span>
+                                    <p class="about-preview__text text-body">Сделать космос легко доступным для&nbsp;исследований и&nbsp;обучения через&nbsp;инновационные технологии конструирования&nbsp;планет</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <section class="about-gallery">
+                    <div class="container">
+                        <!-- 1 слайдер : пк / планшет -->
+                        <div class="about-gallery__desktop">
+                            <div class="about-gallery__slider">
+                                <div class="about-gallery__track">
+                                    <div class="about-gallery__slide">
+                                        <div class="about-gallery__image-row">
+                                            <img class="about-gallery__image" src="./assets/images/space/1-office.png" alt="" loading="lazy">
+                                            <img class="about-gallery__image" src="./assets/images/space/2-watches.png" alt="" loading="lazy">
+                                        </div>
+                                    </div>
+                                    <div class="about-gallery__slide"><img class="about-gallery__image" src="./assets/images/space/3-lab-1.1.png" alt="" loading="lazy"></div>
+                                    <div class="about-gallery__slide"><img class="about-gallery__image" src="./assets/images/space/4-lab-2.png" alt="" loading="lazy"></div>
+                                    <div class="about-gallery__slide">
+                                        <div class="about-gallery__image-row">
+                                            <img class="about-gallery__image" src="./assets/images/space/5-robo-hand.png" alt="" loading="lazy">
+                                            <img class="about-gallery__image" src="./assets/images/space/6-stand.png" alt="" loading="lazy">
+                                        </div>
+                                    </div>
+                                    <div class="about-gallery__slide"><img class="about-gallery__image" src="./assets/images/space/7-lab-1.2.png" alt="" loading="lazy"></div>
+                                    <div class="about-gallery__slide"><img class="about-gallery__image" src="./assets/images/space/8-exterior.png" alt="" loading="lazy"></div>
+                                </div>
+                                <div class="about-gallery__controls">
+                                    <button class="icon-button about-gallery__arrow about-gallery__arrow--prev" type="button" aria-label="Предыдущее"><img src="./assets/images/ui/arrow.svg" alt=""></button>
+                                    <button class="icon-button about-gallery__arrow about-gallery__arrow--next" type="button" aria-label="Следующее"><img src="./assets/images/ui/arrow.svg" alt=""></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 3 слайдера : мобилка -->
+                        <div class="about-gallery__mobile">
+                            <div class="about-gallery__slider">
+                                <div class="about-gallery__track">
+                                    <div class="about-gallery__slide"><img class="about-gallery__image" src="./assets/images/space/1-office.png" alt="" loading="lazy"></div>
+                                    <div class="about-gallery__slide"><img class="about-gallery__image" src="./assets/images/space/2-watches.png" alt="" loading="lazy"></div>
+                                    <div class="about-gallery__slide"><img class="about-gallery__image" src="./assets/images/space/3-lab-1.1.png" alt="" loading="lazy"></div>
+                                </div>
+                                <div class="about-gallery__controls">
+                                    <button class="icon-button about-gallery__arrow about-gallery__arrow--prev" type="button" aria-label="Предыдущее"><img src="./assets/images/ui/arrow.svg" alt=""></button>
+                                    <button class="icon-button about-gallery__arrow about-gallery__arrow--next" type="button" aria-label="Следующее"><img src="./assets/images/ui/arrow.svg" alt=""></button>
+                                </div>
+                            </div>
+
+                            <div class="about-gallery__slider">
+                                <div class="about-gallery__track">
+                                    <div class="about-gallery__slide"><img class="about-gallery__image" src="./assets/images/space/4-lab-2.png" alt="" loading="lazy"></div>
+                                    <div class="about-gallery__slide"><img class="about-gallery__image" src="./assets/images/space/5-robo-hand.png" alt="" loading="lazy"></div>
+                                    <div class="about-gallery__slide"><img class="about-gallery__image" src="./assets/images/space/6-stand.png" alt="" loading="lazy"></div>
+                                </div>
+                                <div class="about-gallery__controls">
+                                    <button class="icon-button about-gallery__arrow about-gallery__arrow--prev" type="button" aria-label="Предыдущее"><img src="./assets/images/ui/arrow.svg" alt=""></button>
+                                    <button class="icon-button about-gallery__arrow about-gallery__arrow--next" type="button" aria-label="Следующее"><img src="./assets/images/ui/arrow.svg" alt=""></button>
+                                </div>
+                            </div>
+
+                            <div class="about-gallery__slider">
+                                <div class="about-gallery__track">
+                                    <div class="about-gallery__slide"><img class="about-gallery__image" src="./assets/images/space/7-lab-1.2.png" alt="" loading="lazy"></div>
+                                    <div class="about-gallery__slide"><img class="about-gallery__image" src="./assets/images/space/0-exterior-elongated.png" alt="" loading="lazy"></div>
+                                </div>
+                                <div class="about-gallery__controls">
+                                    <button class="icon-button about-gallery__arrow about-gallery__arrow--prev" type="button" aria-label="Предыдущее"><img src="./assets/images/ui/arrow.svg" alt=""></button>
+                                    <button class="icon-button about-gallery__arrow about-gallery__arrow--next" type="button" aria-label="Следующее"><img src="./assets/images/ui/arrow.svg" alt=""></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </section>
         </main>
 

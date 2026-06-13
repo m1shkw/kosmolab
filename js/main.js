@@ -259,6 +259,51 @@ document.addEventListener("DOMContentLoaded", () => {
 })();
 
 
+// пауза / воспроизведение видео : о нас
+(() => {
+    const video = document.querySelector(".about-page__hero-video");
+    if (!video) return;
+
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (reduceMotion) {
+        video.removeAttribute("autoplay");
+
+        try {
+            video.pause();
+            video.currentTime = 0;
+        } catch (e) {}
+
+        return;
+    }
+
+    const play = () => {
+        const promise = video.play();
+
+        if (promise && typeof promise.catch === "function") {
+            promise.catch(() => {});
+        }
+    };
+
+    const pause = () => {
+        video.pause();
+    };
+
+    if (!("IntersectionObserver" in window)) {
+        play();
+        return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            entry.isIntersecting ? play() : pause();
+        });
+    }, { threshold: 0.1 });
+
+    observer.observe(video);
+})();
+
+
 // scramble эффект : рандом набор символов
 (() => {
     const SCRAMBLE_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+-/#$%&()£@!?^><,.*;'[]{}";
@@ -375,13 +420,13 @@ document.addEventListener("DOMContentLoaded", () => {
 // слайдер мероприятий 
 (() => {
     function initSlider(root) {
-        const track = root.querySelector(".events-preview__track");
-        const slides = root.querySelectorAll(".events-preview__slide");
+        const track = root.querySelector(".events-preview__track, .about-gallery__track");
+        const slides = root.querySelectorAll(".events-preview__slide, .about-gallery__slide");
 
         if (!track || slides.length === 0) return;
 
-        const prev = root.querySelector(".events-preview__arrow--prev");
-        const next = root.querySelector(".events-preview__arrow--next");
+        const prev = root.querySelector(".events-preview__arrow--prev, .about-gallery__arrow--prev");
+        const next = root.querySelector(".events-preview__arrow--next, .about-gallery__arrow--next");
 
         const DELAY = 4500;
         let index = 0;
@@ -443,7 +488,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     document.addEventListener("DOMContentLoaded", () => {
-        document.querySelectorAll(".events-preview__slider").forEach(initSlider);
+        document.querySelectorAll(".events-preview__slider, .about-gallery__slider").forEach(initSlider);
     });
 })();
 
