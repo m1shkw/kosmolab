@@ -447,6 +447,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 })();
 
+// оверлей на главной 
 document.addEventListener("DOMContentLoaded", () => {
     const cards = document.querySelectorAll(
         ".events-preview__slider--mobile .events-preview__card"
@@ -455,8 +456,54 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!cards.length) return;
 
     cards.forEach((card) => {
+        if (card.closest(".events-page")) return;
+
         card.addEventListener("click", () => {
             card.classList.toggle("is-overlay-hidden");
         });
     });
+});
+
+
+// оверлей на странице мероприятий 
+document.addEventListener("DOMContentLoaded", () => {
+    const page = document.querySelector(".events-page");
+    if (!page) return;
+
+    const desktopHoverQuery = window.matchMedia(
+        "(hover: hover) and (pointer: fine) and (min-width: 1281px)"
+    );
+
+    const cards = page.querySelectorAll(".events-preview__card");
+    if (!cards.length) return;
+
+    page.querySelectorAll(".events-preview__arrow").forEach((button) => {
+        button.addEventListener("click", (event) => {
+            event.stopPropagation();
+        });
+    });
+
+    cards.forEach((card) => {
+        card.addEventListener("click", () => {
+            if (desktopHoverQuery.matches) return;
+
+            card.classList.toggle("is-overlay-visible");
+        });
+    });
+
+    function resetEventsPageOverlays() {
+        if (desktopHoverQuery.matches) {
+            cards.forEach((card) => {
+                card.classList.remove("is-overlay-visible");
+            });
+        }
+    }
+
+    resetEventsPageOverlays();
+
+    if (desktopHoverQuery.addEventListener) {
+        desktopHoverQuery.addEventListener("change", resetEventsPageOverlays);
+    } else if (desktopHoverQuery.addListener) {
+        desktopHoverQuery.addListener(resetEventsPageOverlays);
+    }
 });

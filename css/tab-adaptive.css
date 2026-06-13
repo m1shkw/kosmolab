@@ -63,7 +63,10 @@
 
 
 
-    /* I. hero-блок */
+
+    /* I. главная !! */
+
+    /* I.I. hero-блок */
     
     /* логотип + описание */
     .hero-screen__content {
@@ -162,7 +165,7 @@
 
 
 
-    /* II. о нас */
+    /* I.II. о нас */
     .about-preview__inner {
         row-gap: 48px;
     }
@@ -240,7 +243,7 @@
 
 
 
-    /* III. тизер каталога */
+    /* I.III. тизер каталога */
     .catalog-teaser {
         --teaser-planet: 280px;
         --teaser-gap: 56px;
@@ -263,7 +266,7 @@
 
 
 
-    /* IV. мероприятия */
+    /* I.IV. мероприятия */
     .events-preview__header {
         row-gap: 24px;
         margin-bottom: 32px;
@@ -329,5 +332,24 @@
 
     .events-preview__card-line {
         margin: 16px 0;
+    }
+
+
+
+
+
+
+
+
+
+    /* III. мероприятия */
+    .events-page .events-preview__card-overlay {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .events-page .events-preview__card.is-overlay-visible .events-preview__card-overlay {
+        opacity: 1;
+        pointer-events: auto;
     }
 }

@@ -144,7 +144,9 @@
 
 
 
-    /* I. hero-блок */
+    /* I. главная !! */
+
+    /* I.I. hero-блок */
     .hero-screen {
         --planet-main-size: clamp(280px, 78vw, 520px);
         --mob-hero-shift: clamp(32px, 6svh, 72px);
@@ -308,7 +310,7 @@
 
 
 
-    /* II. о нас */
+    /* I.II. о нас */
     .about-preview__inner {
         row-gap: 32px;
     }
@@ -396,7 +398,7 @@
 
 
 
-    /* III. тизер каталога */
+    /* I.III. тизер каталога */
     .catalog-teaser__marquee {
         overflow: visible;
     }
@@ -454,7 +456,7 @@
 
 
 
-    /* IV. мероприятия */
+    /* I.IV. мероприятия */
     .events-preview__header {
         display: grid;
         grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
@@ -620,4 +622,33 @@
         width: 100%;
         margin: 32px auto 0;
     }
+
+
+
+
+
+
+
+
+    /* III. мероприятия */
+    .events-page__desktop {
+        display: none;
+    }
+
+    .events-page__mobile {
+        display: block;
+    }
+
+    /* оверлей скрыт по дефолту */
+    .events-page .events-preview__card-overlay {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    /* ховер по тапу */
+    .events-page .events-preview__card.is-overlay-visible .events-preview__card-overlay {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
 }

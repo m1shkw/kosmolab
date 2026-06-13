@@ -439,8 +439,9 @@ main {
 
 
 
+/* I. главная !! */
 
-/* I. hero-блок */
+/* I.I hero-блок */
 .hero-screen {
     width: 100%;
     min-height: 0x;
@@ -694,7 +695,7 @@ main {
 
 
 
-/* II. о нас */
+/* I.II. о нас */
 .about-preview {
     background-color: var(--color-light-gray);
 }
@@ -810,7 +811,7 @@ main {
 
 
 
-/* III. тизер каталога */
+/* I.III. тизер каталога */
 .catalog-teaser {
     background-color: var(--color-light-gray);
     --teaser-planet: 340px;
@@ -950,7 +951,7 @@ main {
 
 
 
-/* IV. мероприятия */
+/* I.IV. мероприятия */
 .events-preview { background-color: var(--color-light-gray); }
 
 .events-preview__header {
@@ -1124,4 +1125,73 @@ main {
     display: flex;
     width: max-content;
     margin: 48px auto 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* III. мероприятия */
+.events-page {
+    background-color: var(--color-light-gray);
+    padding-top: calc(var(--header-offset) + 88px);
+    padding-bottom: var(--section-space);
+}
+
+.events-page__mobile {
+    display: none;
+}
+
+.events-page__desktop {
+    display: flex;
+    flex-direction: column;
+}
+
+.events-page__row {
+    display: grid;
+    grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
+    column-gap: var(--grid-gap);
+}
+
+/* оверлей скрыт по дефолту */
+.events-page .events-preview__card-overlay {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* ховер по наведению */
+@media (hover: hover) and (pointer: fine) {
+    .events-page .events-preview__card:hover .events-preview__card-overlay {
+        opacity: 1;
+        pointer-events: auto;
+    }
+}
+
+/* блок дат */
+.events-page__date-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 16px 0;
+}
+
+.events-page__date-row:last-of-type {
+    margin-bottom: 0;
+}
+
+.events-page__date {
+    color: var(--color-black);
+}
+
+.events-page__date-line {
+    flex: 1 1 0;
+    height: 2px;
+    background-color: var(--color-black);
 }
