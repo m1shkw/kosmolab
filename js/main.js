@@ -48,7 +48,185 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-/* пауза/воспроизведение видео-планет */
+// ховер у хедера: раскрытие меню + scramble эффектик
+(() => {
+    const header = document.querySelector(".header");
+    if (!header) return;
+
+    const nav = header.querySelector(".nav");
+    if (!nav) return;
+
+    const links = Array.from(nav.querySelectorAll(".nav__link"));
+    if (links.length < 2) return;
+
+    const first = links[0];
+    const rest = links.slice(1);
+
+    const FIRST_COLLAPSED = "Меню";
+
+    const FIRST_OPEN_MS = 900;   // меню —> главная
+    const REST_OPEN_MS = 760;    // scramble остальных пунктов
+    const FIRST_CLOSE_MS = 480;  // обратно в меню
+    const STAGGER_BASE = 45;     // старт первого выезжающего пункта
+    const STAGGER_MS = 55;       // шаг между пунктами
+
+    const mql = window.matchMedia("(hover: hover) and (min-width: 1281px)");
+    const CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+-/#$%&()£@!?^><,.*;'[]{}";
+
+    const randChar = () => CHARS[(Math.random() * CHARS.length) | 0];
+
+    // сборка текста слева направо
+    function scrambleTo(el, target, duration) {
+        cancelAnimationFrame(el.__hdrRaf);
+
+        const len = target.length;
+        const t0 = performance.now();
+
+        const step = (now) => {
+            const p = Math.min(1, (now - t0) / duration);
+            let out = "";
+
+            for (let i = 0; i < len; i++) {
+                const ch = target[i];
+
+                if (ch === " ") {
+                    out += " ";
+                    continue;
+                }
+
+                out += p >= i / len ? ch : randChar();
+            }
+
+            el.textContent = out;
+
+            if (p < 1) {
+                el.__hdrRaf = requestAnimationFrame(step);
+            } else {
+                el.textContent = target;
+            }
+        };
+
+        el.__hdrRaf = requestAnimationFrame(step);
+    }
+
+    let enhanced = false;
+    let open = false;
+    let collapsedW = 0;
+    let expandedW = 0;
+
+    function enhance() {
+        if (enhanced) return;
+
+        first.dataset.navExpanded =
+            first.dataset.navExpanded || first.textContent.trim();
+
+        rest.forEach((link) => {
+            link.dataset.navLabel = link.dataset.navLabel || link.textContent.trim();
+        });
+
+        // фиксируем ширины буллитов до замены текста
+        expandedW = Math.ceil(first.getBoundingClientRect().width);
+
+        rest.forEach((link) => {
+            link.style.width = Math.ceil(link.getBoundingClientRect().width) + "px";
+        });
+
+        first.textContent = FIRST_COLLAPSED;
+        collapsedW = Math.ceil(first.getBoundingClientRect().width);
+        first.style.width = collapsedW + "px";
+
+        header.classList.add("is-nav-enhanced");
+        enhanced = true;
+    }
+
+    function unenhance() {
+        if (!enhanced) return;
+
+        header.classList.remove("is-nav-enhanced", "is-nav-open");
+        open = false;
+
+        cancelAnimationFrame(first.__hdrRaf);
+        first.style.width = "";
+        first.textContent = first.dataset.navExpanded;
+
+        rest.forEach((link) => {
+            cancelAnimationFrame(link.__hdrRaf);
+            link.style.width = "";
+            link.textContent = link.dataset.navLabel;
+        });
+
+        enhanced = false;
+    }
+
+    function openNav() {
+        if (!enhanced || open) return;
+
+        open = true;
+        header.classList.add("is-nav-open");
+
+        first.style.width = (expandedW + 6) + "px";
+        scrambleTo(first, first.dataset.navExpanded, FIRST_OPEN_MS);
+
+        rest.forEach((link, index) => {
+            setTimeout(() => {
+                if (open) {
+                    scrambleTo(link, link.dataset.navLabel, REST_OPEN_MS);
+                }
+            }, STAGGER_BASE + index * STAGGER_MS);
+        });
+    }
+
+    function closeNav() {
+        if (!enhanced || !open) return;
+
+        open = false;
+        header.classList.remove("is-nav-open");
+
+        first.style.width = collapsedW + "px";
+        scrambleTo(first, FIRST_COLLAPSED, FIRST_CLOSE_MS);
+
+        rest.forEach((link) => {
+            cancelAnimationFrame(link.__hdrRaf);
+            link.textContent = link.dataset.navLabel;
+        });
+    }
+
+    function apply(event) {
+        if (event.matches) {
+            enhance();
+        } else {
+            unenhance();
+        }
+    }
+
+    header.addEventListener("mouseenter", openNav);
+    header.addEventListener("mouseleave", closeNav);
+
+    // доступность с клавиатуры
+    nav.addEventListener("focusin", openNav);
+    header.addEventListener("focusout", (event) => {
+        if (!header.contains(event.relatedTarget)) {
+            closeNav();
+        }
+    });
+
+    const init = () => apply(mql);
+
+    if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(init);
+    } else {
+        init();
+    }
+
+    if (mql.addEventListener) {
+        mql.addEventListener("change", apply);
+    } else if (mql.addListener) {
+        mql.addListener(apply);
+    }
+})();
+
+
+// пауза / воспроизведение видео-планет 
 (() => {
     const hero = document.querySelector(".hero-screen");
     if (!hero) return;
@@ -194,7 +372,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-/* слайдер мероприятий */
+// слайдер мероприятий 
 (() => {
     function initSlider(root) {
         const track = root.querySelector(".events-preview__track");
