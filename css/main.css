@@ -161,9 +161,13 @@ main {
 }
 
 .button--outline {
+    --outline-color: var(--color-white);
+    --outline-hover-bg: rgba(var(--color-white-rgb), 0.5);
+    --outline-hover-text: var(--color-black);
+
     background-color: transparent;
-    color: var(--color-white);
-    border: 1px solid var(--color-white);
+    color: var(--outline-color);
+    border: 1px solid var(--outline-color);
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
 }
@@ -186,6 +190,45 @@ main {
 .icon-button svg {
     width: 48px;
     height: 48px;
+}
+
+/* ховер-состояния кнопочек */
+.nav__link,
+.mobile-nav__link,
+.button,
+.icon-button {
+    transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease;
+}
+
+/* черные outline ста-кнопки */
+.about-preview__button,
+.catalog-teaser__button,
+.events-preview__button {
+    --outline-color: var(--color-black);
+    --outline-hover-bg: var(--color-black);
+    --outline-hover-text: var(--color-white);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    /* затемнение стекляннях буллитов */
+    .nav__link:not(.is-active):hover,
+    .mobile-nav__link:not(.is-active):hover,
+    .button.mobile-menu-button:hover,
+    .icon-button:hover {
+        background-color: rgba(215, 219, 223, 0.5);
+    }
+
+    /* полупрозрачная заполненная кнопочка */
+    .button--solid:hover {
+        background-color: rgba(var(--color-white-rgb), 0.5);
+    }
+
+    /* заливка outline кнопочек */
+    .button--outline:hover {
+        background-color: var(--outline-hover-bg);
+        color: var(--outline-hover-text);
+        border-color: transparent;
+    }
 }
 
 
@@ -294,18 +337,58 @@ main {
 }
 
 /* мягкий стаггер появления */
-.header.is-nav-enhanced.is-nav-open .nav__link:nth-child(2) { transition-delay: 0.04s; }
-.header.is-nav-enhanced.is-nav-open .nav__link:nth-child(3) { transition-delay: 0.09s; }
-.header.is-nav-enhanced.is-nav-open .nav__link:nth-child(4) { transition-delay: 0.14s; }
-.header.is-nav-enhanced.is-nav-open .nav__link:nth-child(5) { transition-delay: 0.19s; }
+.header.is-nav-enhanced.is-nav-open .nav__link:nth-child(2) {
+    transition-delay: 0.04s, 0.04s, 0.04s, 0.04s, 0.04s, 0s, 0s, 0s;
+}
+.header.is-nav-enhanced.is-nav-open .nav__link:nth-child(3) {
+    transition-delay: 0.09s, 0.09s, 0.09s, 0.09s, 0.09s, 0s, 0s, 0s;
+}
+.header.is-nav-enhanced.is-nav-open .nav__link:nth-child(4) {
+    transition-delay: 0.14s, 0.14s, 0.14s, 0.14s, 0.14s, 0s, 0s, 0s;
+}
+.header.is-nav-enhanced.is-nav-open .nav__link:nth-child(5) {
+    transition-delay: 0.19s, 0.19s, 0.19s, 0.19s, 0.19s, 0s, 0s, 0s;
+}
+.header.is-nav-enhanced:not(.is-nav-open) .nav__link:not(:first-child) {
+    transition-delay: 0s;
+}
 
-.header.is-nav-enhanced:not(.is-nav-open) .nav__link:not(:first-child) { transition-delay: 0s; }
+/* ховер-затемнение буллитов */
+.header .nav__link,
+.header .button.mobile-menu-button {
+    transition:
+        background-color 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+        color 0.5s ease,
+        border-color 0.5s ease;
+}
+
+.header.is-nav-enhanced .nav__link:first-child {
+    transition:
+        width 0.68s cubic-bezier(0.25, 1, 0.5, 1),
+        background-color 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+        color 0.5s ease,
+        border-color 0.5s ease;
+}
+
+.header.is-nav-enhanced .nav__link:not(:first-child) {
+    transition:
+        max-width 0.72s cubic-bezier(0.25, 1, 0.5, 1),
+        margin-left 0.72s cubic-bezier(0.25, 1, 0.5, 1),
+        padding 0.72s cubic-bezier(0.25, 1, 0.5, 1),
+        opacity 0.5s ease,
+        transform 0.6s cubic-bezier(0.25, 1, 0.5, 1),
+        background-color 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+        color 0.5s ease,
+        border-color 0.5s ease;
+}
+
 
 .card {
     border-radius: var(--radius-medium);
     background-color: var(--color-white);
     overflow: hidden;
 }
+
 
 /* футер */
 .footer {
@@ -1041,8 +1124,4 @@ main {
     display: flex;
     width: max-content;
     margin: 48px auto 0;
-}
-.events-preview__button.button--outline {
-    color: var(--color-black);
-    border-color: rgba(var(--color-black-rgb));
 }
