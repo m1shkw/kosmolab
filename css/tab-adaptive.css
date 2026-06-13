@@ -343,6 +343,7 @@
 
 
     /* III. мероприятия */
+    
     .events-page .events-preview__card-overlay {
         opacity: 0;
         pointer-events: none;

@@ -631,6 +631,7 @@
 
 
     /* III. мероприятия */
+
     .events-page__desktop {
         display: none;
     }
@@ -650,5 +651,4 @@
         opacity: 1;
         pointer-events: auto;
     }
-
 }

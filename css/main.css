@@ -1141,7 +1141,7 @@ main {
 /* III. мероприятия */
 .events-page {
     background-color: var(--color-light-gray);
-    padding-top: calc(var(--header-offset) + 88px);
+    padding-top: calc(var(--header-offset) + 80px);
     padding-bottom: var(--section-space);
 }
 
