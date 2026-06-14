@@ -44,7 +44,126 @@
         </header> 
 
         <main>
-            
+            <!-- иконка корзины -->
+            <a class="catalog-cart-button" href="#cart" aria-label="Открыть корзину">
+                <img src="./assets/images/ui/cart.svg" alt="">
+            </a>
+
+            <section class="catalog-page">
+                <div class="container">
+                    <section class="catalog-hero">
+                        <div class="catalog-hero__header">
+
+                            <h1 class="catalog-hero__title text-h1">Каталог</h1>
+
+                            <div class="catalog-hero__labels">
+                                <div class="catalog-hero__column">
+                                    <span class="catalog-hero__label text-microcopy" data-scramble-text="AERIS">AERIS</span>
+                                    <span class="catalog-hero__label text-microcopy" data-scramble-text="EREBOS">EREBOS</span>
+                                </div>
+                                <div class="catalog-hero__column">
+                                    <span class="catalog-hero__label text-microcopy" data-scramble-text="AQUALIS">AQUALIS</span>
+                                    <span class="catalog-hero__label text-microcopy" data-scramble-text="ALBA">ALBA</span>
+                                </div>
+                                <div class="catalog-hero__column">
+                                    <span class="catalog-hero__label text-microcopy" data-scramble-text="CIRRA">CIRRA</span>
+                                    <span class="catalog-hero__label text-microcopy" data-scramble-text="VEIL">VEIL</span>
+                                </div>
+                                <div class="catalog-hero__column">
+                                    <span class="catalog-hero__label text-microcopy" data-scramble-text="НАБОР">НАБОР</span>
+                                    <span class="catalog-hero__label text-microcopy" data-scramble-text="БЛОКНОТЫ">БЛОКНОТЫ</span>
+                                </div>
+                                <div class="catalog-hero__column">
+                                    <span class="catalog-hero__label text-microcopy" data-scramble-text="КОСМО-ГРУНТ">КОСМО-ГРУНТ</span>
+                                    <span class="catalog-hero__label text-microcopy" data-scramble-text="БРЕЛОК">БРЕЛОК</span>
+                                </div>
+                                <div class="catalog-hero__beidzhik">
+                                    <span class="catalog-hero__label text-microcopy catalog-hero__label--spacer" aria-hidden="true">·</span>
+                                    <span class="catalog-hero__label text-microcopy" data-scramble-text="БЕЙДЖИК">БЕЙДЖИК</span>
+                                </div>
+
+                                <div class="catalog-hero__column catalog-hero__column--end">
+                                    <span class="catalog-hero__label text-microcopy" data-scramble-text="ПЕРЧАТКИ">ПЕРЧАТКИ</span>
+                                    <span class="catalog-hero__label text-microcopy" data-scramble-text="РУЧКА">РУЧКА</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </section>
+
+                    <section class="catalog-planets">
+                        <div class="catalog-planets__grid">
+
+                            <div class="catalog-planets__item">
+                                <div class="catalog-planets__image-wrap">
+                                    <img class="catalog-planets__image" src="./assets/images/planets/planet-1.png" alt="AERIS" loading="lazy">
+                                    <img class="catalog-planets__image catalog-planets__image--light" src="./assets/images/planets/planet-1-light.png" alt="" aria-hidden="true" loading="lazy">
+                                    <button class="catalog-planets__add icon-button" type="button" data-product-id="aeris" data-product-name="AERIS" aria-label="Добавить AERIS в корзину">
+                                        <img src="./assets/images/ui/plus.svg" alt="">
+                                    </button>
+                                </div>
+                                <span class="catalog-planets__name text-caption">AERIS</span>
+                            </div>
+
+                            <div class="catalog-planets__item">
+                                <div class="catalog-planets__image-wrap">
+                                    <img class="catalog-planets__image" src="./assets/images/planets/planet-2.png" alt="AERIS" loading="lazy">
+                                    <img class="catalog-planets__image catalog-planets__image--light" src="./assets/images/planets/planet-2-light.png" alt="" aria-hidden="true" loading="lazy">
+                                    <button class="catalog-planets__add icon-button" type="button" data-product-id="erebos" data-product-name="EREBOS" aria-label="Добавить EREBOS в корзину">
+                                        <img src="./assets/images/ui/plus.svg" alt="">
+                                    </button>
+                                </div>
+                                <span class="catalog-planets__name text-caption">EREBOS</span>
+                            </div>
+
+                            <div class="catalog-planets__item">
+                                <div class="catalog-planets__image-wrap">
+                                    <img class="catalog-planets__image" src="./assets/images/planets/planet-3.png" alt="AERIS" loading="lazy">
+                                    <img class="catalog-planets__image catalog-planets__image--light" src="./assets/images/planets/planet-3-light.png" alt="" aria-hidden="true" loading="lazy">
+                                    <button class="catalog-planets__add icon-button" type="button" data-product-id="alba" data-product-name="ALBA" aria-label="Добавить ALBA в корзину">
+                                        <img src="./assets/images/ui/plus.svg" alt="">
+                                    </button>
+                                </div>
+                                <span class="catalog-planets__name text-caption">ALBA</span>
+                            </div>
+
+                            <div class="catalog-planets__item">
+                                <div class="catalog-planets__image-wrap">
+                                    <img class="catalog-planets__image" src="./assets/images/planets/planet-4.png" alt="AERIS" loading="lazy">
+                                    <img class="catalog-planets__image catalog-planets__image--light" src="./assets/images/planets/planet-4-light.png" alt="" aria-hidden="true" loading="lazy">
+                                    <button class="catalog-planets__add icon-button" type="button" data-product-id="aqualis" data-product-name="AQUALIS" aria-label="Добавить AQUALIS в корзину">
+                                        <img src="./assets/images/ui/plus.svg" alt="">
+                                    </button>
+                                </div>
+                                <span class="catalog-planets__name text-caption">AQUALIS</span>
+                            </div>
+
+                            <div class="catalog-planets__item">
+                                <div class="catalog-planets__image-wrap">
+                                    <img class="catalog-planets__image" src="./assets/images/planets/planet-5.png" alt="AERIS" loading="lazy">
+                                    <img class="catalog-planets__image catalog-planets__image--light" src="./assets/images/planets/planet-5-light.png" alt="" aria-hidden="true" loading="lazy">
+                                    <button class="catalog-planets__add icon-button" type="button" data-product-id="cirra" data-product-name="CIRRA" aria-label="Добавить CIRRA в корзину">
+                                        <img src="./assets/images/ui/plus.svg" alt="">
+                                    </button>
+                                </div>
+                                <span class="catalog-planets__name text-caption">CIRRA</span>
+                            </div>
+
+                            <div class="catalog-planets__item">
+                                <div class="catalog-planets__image-wrap">
+                                    <img class="catalog-planets__image" src="./assets/images/planets/planet-6.png" alt="AERIS" loading="lazy">
+                                    <img class="catalog-planets__image catalog-planets__image--light" src="./assets/images/planets/planet-6-light.png" alt="" aria-hidden="true" loading="lazy">
+                                    <button class="catalog-planets__add icon-button" type="button" data-product-id="veil" data-product-name="VEIL" aria-label="Добавить VEIL в корзину">
+                                        <img src="./assets/images/ui/plus.svg" alt="">
+                                    </button>
+                                </div>
+                                <span class="catalog-planets__name text-caption">VEIL</span>
+                            </div>
+
+                        </div>
+                    </section>
+                </div>
+            </section>
         </main>
 
         <footer class="footer">

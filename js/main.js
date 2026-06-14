@@ -624,3 +624,19 @@ document.addEventListener("DOMContentLoaded", () => {
         mobileQuery.addListener(clearAllOverlayState);
     }
 });
+
+
+
+/* каталог : заглушка плюсиков */
+document.addEventListener("DOMContentLoaded", () => {
+    const addButtons = document.querySelectorAll(".catalog-planets__add");
+    if (!addButtons.length) return;
+
+    addButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+            const name = button.dataset.productName || "";
+            const id = button.dataset.productId || "";
+            console.log("Добавлено в корзину:", name, "(" + id + ")");
+        });
+    });
+});

@@ -630,6 +630,84 @@
 
 
 
+    /* II. каталог */
+
+    .catalog-cart-button {
+        right: 16px;
+    }
+
+    .catalog-hero__header {
+        margin-bottom: 32px;
+    }
+
+    .catalog-hero__title {
+        grid-column: 1 / 5;
+        grid-row: 1;
+    }
+
+    /* подписи */
+    .catalog-hero__labels {
+        display: grid;
+        grid-column: 1 / 5;
+        grid-row: 2;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        column-gap: var(--grid-gap);
+        row-gap: 12px;
+        margin-top: 16px;
+    }
+
+    .catalog-hero__column:nth-child(1),
+    .catalog-hero__column:nth-child(2),
+    .catalog-hero__column:nth-child(3),
+    .catalog-hero__column:nth-child(4),
+    .catalog-hero__column:nth-child(5),
+    .catalog-hero__beidzhik,
+    .catalog-hero__column--end {
+        grid-column: auto;
+        padding-top: 0;
+    }
+
+    .catalog-hero__beidzhik .catalog-hero__label--spacer {
+        display: none;
+    }
+
+    .catalog-hero__column--end {
+        justify-self: start;
+        text-align: left;
+    }
+
+    /* планеты */
+    .catalog-planets__item:nth-child(3n + 1),
+    .catalog-planets__item:nth-child(3n + 2),
+    .catalog-planets__item:nth-child(3n) {
+        grid-column: span 2;
+    }
+
+    .catalog-planets__grid {
+        row-gap: 32px;
+    }
+
+    /* плюсик */
+    .catalog-planets__add {
+        bottom: 16px;
+
+        width: 50px;
+        height: 50px;
+        border-radius: var(--radius-small);
+    }
+
+    .catalog-planets__add img,
+    .catalog-planets__add svg {
+        width: 30px;
+        height: 30px;
+    }
+
+
+
+
+
+
+
     /* III. мероприятия */
 
     .events-page__desktop {
