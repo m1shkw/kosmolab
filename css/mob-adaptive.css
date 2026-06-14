@@ -640,16 +640,16 @@
         display: block;
     }
 
-    /* оверлей скрыт по дефолту */
+    /* оверлей виден по дефолту */
     .events-page .events-preview__card-overlay {
-        opacity: 0;
-        pointer-events: none;
-    }
-
-    /* ховер по тапу */
-    .events-page .events-preview__card.is-overlay-visible .events-preview__card-overlay {
         opacity: 1;
         pointer-events: auto;
+    }
+
+    /* скрытие оверлея по тапу */
+    .events-page .events-preview__card.is-overlay-hidden .events-preview__card-overlay {
+        opacity: 0;
+        pointer-events: none;
     }
 
 

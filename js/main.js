@@ -544,6 +544,8 @@ document.addEventListener("DOMContentLoaded", () => {
         "(hover: hover) and (pointer: fine) and (min-width: 1281px)"
     );
 
+    const mobileQuery = window.matchMedia("(max-width: 768px)");
+
     const cards = page.querySelectorAll(".events-preview__card");
     if (!cards.length) return;
 
@@ -552,11 +554,15 @@ document.addEventListener("DOMContentLoaded", () => {
             event.stopPropagation();
 
             const slider = button.closest(".events-preview__slider");
-            if (slider) {
-                slider
-                    .querySelectorAll(".events-preview__card.is-overlay-visible")
-                    .forEach((item) => item.classList.remove("is-overlay-visible"));
-            }
+            if (!slider) return;
+
+            const resetClass = mobileQuery.matches
+                ? "is-overlay-hidden"
+                : "is-overlay-visible";
+
+            slider
+                .querySelectorAll(".events-preview__card." + resetClass)
+                .forEach((item) => item.classList.remove(resetClass));
         });
     });
 
@@ -564,11 +570,27 @@ document.addEventListener("DOMContentLoaded", () => {
         card.addEventListener("click", () => {
             if (desktopHoverQuery.matches) return;
 
-            const isOpen = card.classList.contains("is-overlay-visible");
+            if (mobileQuery.matches) {
+                const isHidden = card.classList.contains("is-overlay-hidden");
 
-            cards.forEach((item) => item.classList.remove("is-overlay-visible"));
+                cards.forEach((item) => {
+                    item.classList.remove("is-overlay-hidden");
+                });
 
-            if (!isOpen) card.classList.add("is-overlay-visible");
+                if (!isHidden) {
+                    card.classList.add("is-overlay-hidden");
+                }
+            } else {
+                const isOpen = card.classList.contains("is-overlay-visible");
+
+                cards.forEach((item) => {
+                    item.classList.remove("is-overlay-visible");
+                });
+
+                if (!isOpen) {
+                    card.classList.add("is-overlay-visible");
+                }
+            }
         });
     });
 
@@ -576,8 +598,16 @@ document.addEventListener("DOMContentLoaded", () => {
         if (desktopHoverQuery.matches) {
             cards.forEach((card) => {
                 card.classList.remove("is-overlay-visible");
+                card.classList.remove("is-overlay-hidden");
             });
         }
+    }
+
+    function clearAllOverlayState() {
+        cards.forEach((card) => {
+            card.classList.remove("is-overlay-visible");
+            card.classList.remove("is-overlay-hidden");
+        });
     }
 
     resetEventsPageOverlays();
@@ -586,5 +616,11 @@ document.addEventListener("DOMContentLoaded", () => {
         desktopHoverQuery.addEventListener("change", resetEventsPageOverlays);
     } else if (desktopHoverQuery.addListener) {
         desktopHoverQuery.addListener(resetEventsPageOverlays);
+    }
+
+    if (mobileQuery.addEventListener) {
+        mobileQuery.addEventListener("change", clearAllOverlayState);
+    } else if (mobileQuery.addListener) {
+        mobileQuery.addListener(clearAllOverlayState);
     }
 });
