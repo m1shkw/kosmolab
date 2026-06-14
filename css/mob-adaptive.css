@@ -658,7 +658,74 @@
 
 
 
-    /* IV. о нас */
+
+    /* IV. руководство */
+
+    .guide-hero { border-radius: 0 0 var(--radius-large-mobile) var(--radius-large-mobile); }
+
+    /* обложка */
+    .guide-hero__cover {
+        top: 53%;
+        left: calc(50% + 5px);
+        transform: translate(-50%, -50%);
+        width: 98%;
+        max-height: 80%;
+    }
+
+
+    /* подсказка callout */
+    .guide-hero-callout {
+        left: 50%;
+        right: auto;
+        top: auto;
+        bottom: 16px;
+        transform: translateX(-50%);
+        width: max-content;
+        height: auto;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .guide-hero-callout__line {
+        display: none;
+    }
+
+    .guide-hero-callout__circle {
+        display: none;
+    }
+
+    .guide-hero-callout__text {
+        position: static;
+        width: max-content;
+        max-width: 240px;
+
+        white-space: nowrap;
+        text-align: center;
+    }
+
+    /* развороты */
+    .guide-spreads__track { gap: 16px; }
+    .guide-spreads__slide { flex: 0 0 82vw; }
+    .guide-spreads__image {
+        height: auto;
+        width: 100%;
+        aspect-ratio: 1412 / 1000;
+        object-fit: cover;
+        border-radius: 12px;
+    }
+
+
+
+
+
+
+
+
+
+    /* V. о нас */
     
     .about-page { padding-top: 0; }
 

@@ -417,16 +417,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-// слайдер мероприятий 
+// слайдер : мероприятия / о нас / руководство
 (() => {
     function initSlider(root) {
-        const track = root.querySelector(".events-preview__track, .about-gallery__track");
-        const slides = root.querySelectorAll(".events-preview__slide, .about-gallery__slide");
+        const track = root.querySelector(
+            ".events-preview__track, .about-gallery__track, .guide-spreads__track"
+        );
+
+        const slides = root.querySelectorAll(
+            ".events-preview__slide, .about-gallery__slide, .guide-spreads__slide"
+        );
 
         if (!track || slides.length === 0) return;
 
-        const prev = root.querySelector(".events-preview__arrow--prev, .about-gallery__arrow--prev");
-        const next = root.querySelector(".events-preview__arrow--next, .about-gallery__arrow--next");
+        const prev = root.querySelector(
+            ".events-preview__arrow--prev, .about-gallery__arrow--prev, .guide-spreads__arrow--prev"
+        );
+
+        const next = root.querySelector(
+            ".events-preview__arrow--next, .about-gallery__arrow--next, .guide-spreads__arrow--next"
+        );
 
         const DELAY = 4500;
         let index = 0;
@@ -436,9 +446,20 @@ document.addEventListener("DOMContentLoaded", () => {
             index = (i + slides.length) % slides.length;
 
             const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
-            const step = root.clientWidth + gap;
+            const slideWidth = slides[0].getBoundingClientRect().width;
+            const step = slideWidth + gap;
 
-            track.style.transform = "translateX(" + (-index * step) + "px)";
+            let offset = index * step;
+
+            // центрирование разворота
+            if (root.classList.contains("guide-spreads__slider")) {
+                offset -= (root.clientWidth - slideWidth) / 2;
+            }
+
+            const maxOffset = Math.max(0, track.scrollWidth - root.clientWidth);
+            offset = Math.max(0, Math.min(offset, maxOffset));
+
+            track.style.transform = "translateX(" + (-offset) + "px)";
         }
 
         function nextSlide() {
@@ -488,7 +509,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     document.addEventListener("DOMContentLoaded", () => {
-        document.querySelectorAll(".events-preview__slider, .about-gallery__slider").forEach(initSlider);
+        document
+            .querySelectorAll(
+                ".events-preview__slider, .about-gallery__slider, .guide-spreads__slider"
+            )
+            .forEach(initSlider);
     });
 })();
 

@@ -361,7 +361,70 @@
 
 
 
-    /* IV. о нас */
+    /* IV. руководство */
+    .guide-hero__cover {
+        width: clamp(500px, 60%, 680px);
+        top: 20%;
+    }
+
+    /* подсказка callout */
+    .guide-hero-callout {
+        left: calc(50% - 24px);
+        top: calc(50% - 220px);
+        right: auto;
+        bottom: auto;
+        transform: none;
+
+        width: 360px;
+        height: 90px;
+    }
+
+    .guide-hero-callout__circle {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        top: auto;
+
+        width: 48px;
+        height: 48px;
+    }
+
+    .guide-hero-callout__line {
+        position: absolute;
+        left: 24px;
+        bottom: 24px;
+
+        display: block;
+        width: 150px;
+        height: auto;
+    }
+
+    .guide-hero-callout__text {
+        position: absolute;
+        left: 188px;
+        top: 20px;
+        bottom: auto;
+
+        width: auto;
+        white-space: nowrap;
+        text-align: left;
+    }
+
+    .guide-spreads__slide { flex: 0 0 min(72vw, 760px); }
+    .guide-spreads__image {
+        height: auto;
+        width: 100%;
+        aspect-ratio: 1412 / 1000;
+    }
+
+
+
+
+
+
+
+
+    /* V. о нас */
     .about-page__hero-video { height: 420px; }
     .about-gallery__image { height: 380px; }
 }
