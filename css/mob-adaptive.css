@@ -645,6 +645,15 @@
         grid-row: 1;
     }
 
+    /* II.0. корзина */
+    .catalog-cart {
+        top: calc(var(--header-offset) + 41px + 8px);
+        left: 16px;
+        right: 16px;
+        width: auto;
+        max-width: none;
+    }
+
 
     /* II.I. подписи */
     .catalog-hero__labels {

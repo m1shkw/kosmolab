@@ -666,22 +666,3 @@ document.addEventListener("DOMContentLoaded", () => {
         desktopHoverQuery.addListener(clearOnDesktop);
     }
 });
-
-
-/* каталог : заглушка плюсиков */
-document.addEventListener("DOMContentLoaded", () => {
-    const addButtons = document.querySelectorAll(
-        ".catalog-planets__add, .catalog-merch__add"
-    );
-
-    if (!addButtons.length) return;
-
-    addButtons.forEach((button) => {
-        button.addEventListener("click", (event) => {
-            const name = button.dataset.productName || "";
-            const id = button.dataset.productId || "";
-
-            console.log("Добавлено в корзину:", name, "(" + id + ")");
-        });
-    });
-});

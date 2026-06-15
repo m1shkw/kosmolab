@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./css/mob-adaptive.css">
 
     <script src="./js/main.js" defer></script>
+    <script src="./js/cart.js" defer></script>
 </head>
 
 <body>
@@ -44,10 +45,18 @@
         </header> 
 
         <main>
-            <!-- иконка корзины -->
+            <!-- корзина -->
             <a class="catalog-cart-button" href="#cart" aria-label="Открыть корзину">
                 <img src="./assets/images/ui/cart.svg" alt="">
             </a>
+
+            <aside class="catalog-cart" aria-label="Корзина">
+                <div class="catalog-cart__items"></div>
+                <p class="catalog-cart__empty text-microcopy">Корзина пуста</p>
+                <button class="catalog-cart__checkout button text-microcopy-medium" type="button">
+                    Оформить заказ →
+                </button>
+            </aside>
 
             <section class="catalog-page">
                 <div class="container">

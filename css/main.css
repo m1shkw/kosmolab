@@ -1145,7 +1145,8 @@ main {
     padding-bottom: var(--section-space);
 }
 
-/* плашка корзины в хедере */
+
+/* II.0 плашка корзины в хедере */
 .catalog-cart-button {
     position: fixed;
     top: var(--header-offset);
@@ -1165,6 +1166,179 @@ main {
     -webkit-backdrop-filter: blur(var(--blur-default));
 }
 .catalog-cart-button img { width: 24px; height: 24px; }
+
+
+/* корзина */
+.catalog-cart {
+    position: fixed;
+    top: calc(var(--header-offset) + 41px + 8px);
+    right: var(--header-offset);
+    z-index: 99;
+
+    width: 460px;
+    max-width: calc(100vw - var(--header-offset) * 2);
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-8px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear 0.3s;
+}
+
+.catalog-cart.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.catalog-cart [hidden] {
+    display: none;
+}
+
+.catalog-cart__items {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.catalog-cart__empty {
+    margin: 0;
+    padding: 24px;
+    text-align: center;
+    border-radius: var(--radius-medium);
+    background-color: var(--glass-white);
+    backdrop-filter: blur(var(--blur-default));
+    -webkit-backdrop-filter: blur(var(--blur-default));
+    color: rgba(var(--color-black-rgb), 0.5);
+}
+
+/* плашка товара */
+.catalog-cart__item {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    column-gap: 12px;
+
+    padding: 12px;
+    border-radius: var(--radius-medium);
+    background-color: var(--glass-white);
+    backdrop-filter: blur(var(--blur-default));
+    -webkit-backdrop-filter: blur(var(--blur-default));
+}
+
+.catalog-cart__image {
+    width: 64px;
+    height: 64px;
+    border-radius: var(--radius-small);
+    overflow: hidden;
+    background-color: var(--color-light-gray);
+}
+
+.catalog-cart__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.catalog-cart__body {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.catalog-cart__title {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    color: var(--color-black);
+}
+
+.catalog-cart__price {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+
+    padding: 6px 10px;
+    border: 1px solid rgba(var(--color-black-rgb), 0.2);
+    border-radius: var(--radius-small);
+    color: var(--color-black);
+}
+
+.catalog-cart__currency {
+    width: 14px;
+    height: 14px;
+    display: block;
+}
+
+/* количество */
+.catalog-cart__qty {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-right: 4px;
+}
+
+.catalog-cart__qty-button {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    border: none;
+    border-radius: var(--radius-small);
+
+    background-color: rgba(var(--color-black-rgb), 0.4);
+    backdrop-filter: blur(var(--blur-default));
+    -webkit-backdrop-filter: blur(var(--blur-default));
+}
+
+/* плюсики минусики */
+.catalog-cart__qty-button::before,
+.catalog-cart__qty-button::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    background-color: var(--color-white);
+    border-radius: 1px;
+}
+
+.catalog-cart__qty-button::before {
+    width: 12px;
+    height: 2px;
+    transform: translate(-50%, -50%);
+}
+
+.catalog-cart__qty-button--plus::after {
+    width: 2px;
+    height: 12px;
+    transform: translate(-50%, -50%);
+}
+
+.catalog-cart__qty-value {
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-small);
+    background-color: var(--color-white);
+    color: var(--color-black);
+}
+
+.catalog-cart__checkout {
+    width: 100%;
+    justify-content: center;
+}
+
+
 
 
 /* II.I. заголовок + подписи */
