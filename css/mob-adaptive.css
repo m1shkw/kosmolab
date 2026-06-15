@@ -645,7 +645,7 @@
         grid-row: 1;
     }
 
-    
+
     /* подписи */
     .catalog-hero__labels {
         display: grid;
@@ -721,6 +721,55 @@
     .catalog-planets__add svg {
         width: 30px;
         height: 30px;
+    }
+
+
+
+
+    /* II.II. проекты */
+    .catalog-projects {
+        --proj-media-inset: 8px;
+    }
+
+    .catalog-projects__grid {
+        grid-template-columns: minmax(0, 1fr);
+        row-gap: 16px;
+    }
+
+    .catalog-projects__card--constructor,
+    .catalog-projects__card--instructions {
+        grid-column: auto;
+        flex-direction: column;
+        height: auto;
+        border-radius: var(--radius-medium);
+    }
+
+    .catalog-projects__content {
+        padding: 24px 24px 16px;
+    }
+
+    .catalog-projects__text {
+        max-width: none;
+    }
+
+    /* ста-кнопка */
+    .catalog-projects__button {
+        position: absolute;
+        left: 16px;
+        right: 16px;
+        bottom: 16px;
+        z-index: 2;
+        margin-top: 0;
+        align-self: auto;
+    }
+
+    /* пикча */
+    .catalog-projects__media {
+        width: auto;
+        align-self: stretch;
+        margin: var(--proj-media-inset);
+        aspect-ratio: 1 / 1;
+        border-radius: var(--radius-small);
     }
 
 

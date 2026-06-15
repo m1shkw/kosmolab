@@ -1305,6 +1305,168 @@ main {
 
 
 
+/* II.II. проекты */
+
+.catalog-projects {
+    --proj-card-height: 308px;
+    --proj-media-inset: 8px;
+
+    margin-top: var(--section-space);
+    scroll-margin-top: calc(var(--header-offset) + 80px);
+}
+
+.catalog-projects__grid {
+    display: grid;
+    grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
+    column-gap: var(--grid-gap);
+}
+
+
+/* общая карточка */
+.catalog-projects__card {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+
+    height: var(--proj-card-height);
+    overflow: hidden;
+    border-radius: 32px;
+}
+
+
+/* конструктор */
+.catalog-projects__card--constructor {
+    grid-column: 1 / 7;
+    background-color: var(--color-blue);
+    color: var(--color-black);
+}
+
+
+/* инструкция */
+.catalog-projects__card--instructions {
+    grid-column: 7 / 13;
+    background-color: var(--color-dark-blue);
+    color: var(--color-white);
+}
+
+
+/* контент карточки */
+.catalog-projects__content {
+    flex: 1 1 auto;
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 24px 32px 32px 32px;
+}
+
+/* заголовок */
+.catalog-projects__title {
+    margin: 0;
+    color: inherit;
+    font-size: clamp(36px, 3vw, 48px);
+}
+
+/* описание */
+.catalog-projects__text {
+    margin: 16px 0 0;
+    max-width: 320px;
+
+    color: inherit;
+    opacity: 0.7;
+}
+
+
+/* ста-кнопка */
+.catalog-projects__button {
+    margin-top: auto;
+    align-self: flex-start;
+
+    color: var(--color-black);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .catalog-projects__button:hover {
+        background-color: var(--color-white);
+        color: var(--color-black);
+    }
+}
+
+
+/* пикча */
+.catalog-projects__media {
+    position: relative;
+    flex: 0 0 auto;
+    align-self: stretch;
+    width: calc(var(--proj-card-height) - var(--proj-media-inset) * 2);
+    margin: var(--proj-media-inset);
+
+    border-radius: var(--radius-medium);
+    overflow: hidden;
+    isolation: isolate;
+
+    background-color: var(--color-blue);
+}
+.catalog-projects__card--instructions .catalog-projects__media {
+    background-color: var(--color-dark-blue);
+}
+
+.catalog-projects__mockup {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+
+    filter: blur(var(--blur-default));
+    transform: scale(1.06);
+    transition: filter 0.45s ease, transform 0.45s ease;
+}
+
+/* оверлей */
+.catalog-projects__overlay {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgba(var(--color-black-rgb), 0.6);
+
+    opacity: 1;
+    transition: opacity 0.45s ease;
+}
+
+
+/* свгшка */
+.catalog-projects__form {
+    width: 80%;
+    height: auto;
+    display: block;
+}
+
+
+/* ховер */
+@media (hover: hover) and (pointer: fine) {
+    .catalog-projects__media:hover .catalog-projects__overlay {
+        opacity: 0;
+    }
+
+    .catalog-projects__media:hover .catalog-projects__mockup {
+        filter: blur(0);
+        transform: scale(1);
+    }
+}
+
+
+
+
+
+
 
 
 

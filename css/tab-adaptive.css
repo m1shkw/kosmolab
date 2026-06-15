@@ -410,6 +410,27 @@
 
 
 
+    /* II.II. проекты */
+    .catalog-projects {
+        --proj-card-height: 280px;
+    }
+
+    .catalog-projects__grid {
+        row-gap: 16px;
+    }
+
+    .catalog-projects__card--constructor,
+    .catalog-projects__card--instructions {
+        grid-column: 1 / 13;
+    }
+
+    .catalog-projects__content {
+        padding: 24px 0 24px 24px;
+    }
+
+
+
+
 
 
 
