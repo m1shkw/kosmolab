@@ -1237,13 +1237,12 @@ main {
     height: 64px;
     border-radius: var(--radius-small);
     overflow: hidden;
-    background-color: var(--color-light-gray);
 }
 
 .catalog-cart__image img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .catalog-cart__body {
@@ -1264,7 +1263,7 @@ main {
     align-self: flex-start;
     display: inline-flex;
     align-items: center;
-    gap: 4px;
+    gap: 2px;
 
     padding: 6px 10px;
     border: 1px solid rgba(var(--color-black-rgb), 0.2);
@@ -1273,9 +1272,13 @@ main {
 }
 
 .catalog-cart__currency {
-    width: 14px;
-    height: 14px;
+    width: 10px;
+    height: 10px;
     display: block;
+    flex: 0 0 10px;
+
+    object-fit: contain;
+    object-position: center;
 }
 
 /* количество */
@@ -1288,11 +1291,11 @@ main {
 
 .catalog-cart__qty-button {
     position: relative;
-    width: 40px;
-    height: 40px;
+    width: 24px;
+    height: 24px;
     cursor: pointer;
     border: none;
-    border-radius: var(--radius-small);
+    border-radius: 10px;
 
     background-color: rgba(var(--color-black-rgb), 0.4);
     backdrop-filter: blur(var(--blur-default));
@@ -1311,14 +1314,14 @@ main {
 }
 
 .catalog-cart__qty-button::before {
-    width: 12px;
-    height: 2px;
+    width: 10px;
+    height: 1px;
     transform: translate(-50%, -50%);
 }
 
 .catalog-cart__qty-button--plus::after {
-    width: 2px;
-    height: 12px;
+    width: 1px;
+    height: 10px;
     transform: translate(-50%, -50%);
 }
 

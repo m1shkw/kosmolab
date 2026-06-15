@@ -135,6 +135,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     itemsRoot.addEventListener("click", (event) => {
+        event.stopPropagation();
+
         const button = event.target.closest(".catalog-cart__qty-button");
         if (!button) return;
 
@@ -145,7 +147,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     if (checkoutButton) {
-        checkoutButton.addEventListener("click", () => {
+        checkoutButton.addEventListener("click", (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+
             console.log("Оформить заказ", cart);
         });
     }
@@ -154,6 +159,10 @@ document.addEventListener("DOMContentLoaded", () => {
         if (event.key === "Escape") closeCart();
     });
 
+    cartRoot.addEventListener("click", (event) => {
+        event.stopPropagation();
+    });
+    
     document.addEventListener("click", (event) => {
         if (!cartRoot.classList.contains("is-open")) return;
         if (cartRoot.contains(event.target)) return;

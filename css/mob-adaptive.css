@@ -654,6 +654,23 @@
         max-width: none;
     }
 
+    /* на мобилке кнопки +/- остаются 40x40 */
+    .catalog-cart__qty-button {
+        width: 40px;
+        height: 40px;
+        border-radius: var(--radius-small);
+    }
+
+    .catalog-cart__qty-button::before {
+        width: 12px;
+        height: 1.5px;
+    }
+
+    .catalog-cart__qty-button--plus::after {
+        width: 1.5px;
+        height: 12px;
+    }
+
 
     /* II.I. подписи */
     .catalog-hero__labels {
