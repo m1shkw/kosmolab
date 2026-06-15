@@ -646,7 +646,7 @@
     }
 
 
-    /* подписи */
+    /* II.I. подписи */
     .catalog-hero__labels {
         display: grid;
         grid-column: 1 / 5;
@@ -677,27 +677,29 @@
     .catalog-hero__label:nth-child(13) { grid-column: 9 / 13;  grid-row: 3; justify-self: end; text-align: right; }
 
 
-    /* планеты */
+    /* II.II. планеты */
     .catalog-planets__grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
         column-gap: var(--grid-gap);
-        row-gap: 32px;
+        row-gap: 24px;
     }
 
     .catalog-planets__item,
     .catalog-planets__item:nth-child(3n + 1),
     .catalog-planets__item:nth-child(3n + 2),
     .catalog-planets__item:nth-child(3n) {
-        grid-column: auto;
-        align-items: center;
-        width: 100%;
+        grid-column: auto !important;
+        align-items: center !important;
+        width: 100% !important;
         min-width: 0;
+        padding: 0;
     }
 
-    .catalog-planets__image-wrap {
-        width: clamp(132px, 42vw, 310px);
-        max-width: 100%;
-        margin: 0 auto;
+    .catalog-planets__item .catalog-planets__image-wrap {
+        width: 100% !important;
+        max-width: none !important;
+        margin: 0 !important;
     }
 
     .catalog-planets__name {
@@ -726,7 +728,7 @@
 
 
 
-    /* II.II. проекты */
+    /* II.III. проекты */
     .catalog-projects {
         --proj-media-inset: 8px;
     }

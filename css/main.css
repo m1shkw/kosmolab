@@ -1167,7 +1167,7 @@ main {
 .catalog-cart-button img { width: 24px; height: 24px; }
 
 
-/* заголовок + подписи */
+/* II.I. заголовок + подписи */
 .catalog-hero__header {
     display: grid;
     grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
@@ -1219,7 +1219,7 @@ main {
 .catalog-hero__label:nth-child(12) { grid-column: 12; grid-row: 2; justify-self: end; text-align: right; } /* ручка */
 
 
-/* планеты */
+/* II.II. планеты */
 .catalog-planets__grid {
     --catalog-planet-width: 92%;
 
@@ -1305,8 +1305,7 @@ main {
 
 
 
-/* II.II. проекты */
-
+/* II.III. проекты */
 .catalog-projects {
     --proj-card-height: 308px;
     --proj-media-inset: 8px;

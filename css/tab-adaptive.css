@@ -354,7 +354,7 @@
     }
 
     
-    /* подписи */
+    /* II.I. подписи */
    .catalog-hero__labels {
         display: grid;
         grid-column: 1 / 13;
@@ -380,7 +380,7 @@
     .catalog-hero__label:nth-child(12) { grid-column: 7; grid-row: 2; }
 
 
-    /* планеты */
+    /* II.II. планеты */
     .catalog-planets__grid {
         grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
         column-gap: var(--grid-gap);
@@ -410,7 +410,7 @@
 
 
 
-    /* II.II. проекты */
+    /* II.III. проекты */
     .catalog-projects {
         --proj-card-height: 280px;
     }
