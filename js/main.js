@@ -627,15 +627,60 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+/* каталог : ховер по тапу */
+document.addEventListener("DOMContentLoaded", () => {
+    const items = document.querySelectorAll(".catalog-merch__item");
+    if (!items.length) return;
+
+    const desktopHoverQuery = window.matchMedia(
+        "(hover: hover) and (pointer: fine) and (min-width: 1281px)"
+    );
+
+    items.forEach((item) => {
+        item.addEventListener("click", () => {
+            if (desktopHoverQuery.matches) return;
+
+            const isActive = item.classList.contains("is-hovered");
+
+            items.forEach((card) => {
+                card.classList.remove("is-hovered");
+            });
+
+            if (!isActive) {
+                item.classList.add("is-hovered");
+            }
+        });
+    });
+
+    function clearOnDesktop() {
+        if (desktopHoverQuery.matches) {
+            items.forEach((card) => {
+                card.classList.remove("is-hovered");
+            });
+        }
+    }
+
+    if (desktopHoverQuery.addEventListener) {
+        desktopHoverQuery.addEventListener("change", clearOnDesktop);
+    } else if (desktopHoverQuery.addListener) {
+        desktopHoverQuery.addListener(clearOnDesktop);
+    }
+});
+
+
 /* каталог : заглушка плюсиков */
 document.addEventListener("DOMContentLoaded", () => {
-    const addButtons = document.querySelectorAll(".catalog-planets__add");
+    const addButtons = document.querySelectorAll(
+        ".catalog-planets__add, .catalog-merch__add"
+    );
+
     if (!addButtons.length) return;
 
     addButtons.forEach((button) => {
-        button.addEventListener("click", () => {
+        button.addEventListener("click", (event) => {
             const name = button.dataset.productName || "";
             const id = button.dataset.productId || "";
+
             console.log("Добавлено в корзину:", name, "(" + id + ")");
         });
     });

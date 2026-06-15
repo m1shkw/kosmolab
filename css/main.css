@@ -1465,6 +1465,101 @@ main {
 
 
 
+/* II.IV. мерч */
+.catalog-merch {
+    margin-top: var(--section-space);
+}
+
+.catalog-merch__grid {
+    display: grid;
+    grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
+    column-gap: var(--grid-gap);
+    row-gap: 64px;
+}
+
+
+/* карточка товара */
+.catalog-merch__item {
+    grid-column: span 4;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 0;
+}
+
+.catalog-merch__item--wide {
+    grid-column: 1 / -1;
+}
+
+
+/* контейнер пикчи товара */
+.catalog-merch__image-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+
+    overflow: hidden;
+    border-radius: var(--radius-medium);
+    background-color: var(--color-light-gray);
+}
+
+.catalog-merch__item--wide .catalog-merch__image-wrap {
+    aspect-ratio: 2454 / 800;
+}
+
+
+/* дефолт пикча */
+.catalog-merch__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    transform: scale(2.1);
+    filter: grayscale(1);
+    transition: transform 0.7s ease, filter 0.7s ease;
+}
+
+.catalog-merch__item--wide .catalog-merch__image {
+    transform: scale(2);
+}
+
+
+/* ховер */
+.catalog-merch__item:hover .catalog-merch__image,
+.catalog-merch__item.is-hovered .catalog-merch__image {
+    transform: scale(1);
+    filter: grayscale(0);
+}
+
+
+/* плюсик */
+.catalog-merch__add {
+    position: absolute;
+    left: 50%;
+    bottom: 32px;
+    transform: translateX(-50%);
+    z-index: 3;
+
+    cursor: pointer;
+    border: none;
+    border-radius: var(--radius-medium);
+}
+
+
+/* название */
+.catalog-merch__name {
+    margin: 24px 0 0;
+
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--color-black);
+}
+
+
+
+
+
 
 
 

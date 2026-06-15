@@ -777,6 +777,46 @@
 
 
 
+    /* II.IV. мерч */
+    .catalog-merch__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        column-gap: var(--grid-gap);
+        row-gap: 32px;
+    }
+
+    .catalog-merch__item {
+        grid-column: auto;
+    }
+
+    .catalog-merch__item--wide {
+        grid-column: 1 / -1;
+        order: 1;
+    }
+
+    .catalog-merch__image {
+        transform: scale(1.6);
+    }
+
+    .catalog-merch__item--wide .catalog-merch__image {
+        transform: scale(2.5);
+    }
+
+    /* плюсик */
+    .catalog-merch__add {
+        bottom: 16px;
+        border-radius: var(--radius-small);
+    }
+
+    .catalog-merch__name {
+        margin-top: 12px;
+    }
+
+
+
+
+
+
+
 
 
 
