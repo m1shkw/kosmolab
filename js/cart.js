@@ -7,6 +7,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const itemsRoot = cartRoot.querySelector(".catalog-cart__items");
     const emptyMessage = cartRoot.querySelector(".catalog-cart__empty");
     const checkoutButton = cartRoot.querySelector(".catalog-cart__checkout");
+    const successPopup = document.querySelector(".catalog-success");
+    const successButton = successPopup
+        ? successPopup.querySelector(".catalog-success__button")
+        : null;
 
     const PRICE = 88.88;
     const CURRENCY_SRC = "./assets/images/catalog/ksl-currency.svg";
@@ -104,6 +108,20 @@ document.addEventListener("DOMContentLoaded", () => {
         cartRoot.classList.remove("is-open");
     }
 
+    function openSuccess() {
+        if (successPopup) {
+            successPopup.classList.add("is-open");
+            successPopup.setAttribute("aria-hidden", "false");
+        }
+    }
+
+    function closeSuccess() {
+        if (successPopup) {
+            successPopup.classList.remove("is-open");
+            successPopup.setAttribute("aria-hidden", "true");
+        }
+    }
+
     function toggleCart() {
         if (cartRoot.classList.contains("is-open")) {
             closeCart();
@@ -120,6 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 event.preventDefault();
                 event.stopPropagation();
 
+                closeSuccess();
                 addToCart(readProduct(button));
                 openCart();
             });
@@ -130,6 +149,7 @@ document.addEventListener("DOMContentLoaded", () => {
             event.preventDefault();
             event.stopPropagation();
 
+            closeSuccess();
             toggleCart();
         });
     }
@@ -151,24 +171,53 @@ document.addEventListener("DOMContentLoaded", () => {
             event.preventDefault();
             event.stopPropagation();
 
-            console.log("Оформить заказ", cart);
+            closeCart();
+            openSuccess();
+        });
+    }
+
+    if (successButton) {
+        successButton.addEventListener("click", (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+
+            cart = [];
+            render();
+            closeSuccess();
+            closeCart();
         });
     }
 
     document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape") closeCart();
+        if (event.key === "Escape") {
+            closeCart();
+            closeSuccess();
+        }
     });
 
     cartRoot.addEventListener("click", (event) => {
         event.stopPropagation();
     });
-    
+
+    if (successPopup) {
+        successPopup.addEventListener("click", (event) => {
+            event.stopPropagation();
+        });
+    }
+
     document.addEventListener("click", (event) => {
-        if (!cartRoot.classList.contains("is-open")) return;
+        const cartOpen = cartRoot.classList.contains("is-open");
+        const successOpen = successPopup && successPopup.classList.contains("is-open");
+
+        if (!cartOpen && !successOpen) return;
+
         if (cartRoot.contains(event.target)) return;
+        if (successPopup && successPopup.contains(event.target)) return;
         if (cartButton && cartButton.contains(event.target)) return;
         if (event.target.closest(".catalog-planets__add, .catalog-merch__add")) return;
+
         closeCart();
+        closeSuccess();
     });
 
     render();

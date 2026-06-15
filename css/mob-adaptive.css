@@ -654,7 +654,7 @@
         max-width: none;
     }
 
-    /* на мобилке кнопки +/- остаются 40x40 */
+    /* плюсики минусики */
     .catalog-cart__qty-button {
         width: 40px;
         height: 40px;
@@ -749,6 +749,23 @@
     .catalog-planets__add svg {
         width: 30px;
         height: 30px;
+    }
+
+
+    /* попап */
+    .catalog-success {
+        left: 50%;
+        top: 70%;
+        right: auto;
+
+        width: calc(100vw - 32px);
+        max-width: 370px;
+
+        transform: translate(-50%, -50%) translateY(-8px);
+    }
+
+    .catalog-success.is-open {
+        transform: translate(-50%, -50%);
     }
 
 
