@@ -281,7 +281,6 @@ main {
 
 
 /* анимашка хедера */
-
 .header.is-nav-enhanced .nav {
     gap: 0;
 }
@@ -413,6 +412,16 @@ main {
     flex-direction: column;
     align-items: center;
     gap: 32px;
+}
+
+.footer__nav a {
+    transition: opacity 0.4s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .footer__nav a:hover {
+        opacity: 0.5;
+    }
 }
 
 .footer__meta {
