@@ -2,6 +2,12 @@
 /* планшет 1280px - 769px */
 @media (min-width: 769px) and (max-width: 1280px) {
     
+    :root {
+        --grid-columns: 12;
+        --page-padding: 32px;
+        --grid-gap: 16px;
+    }
+
     /* ui */
     .nav {
         display: none;
@@ -526,6 +532,9 @@
 
 
     /* V. о нас */
-    .about-page__hero-video { height: 420px; }
-    .about-gallery__image { height: 380px; }
+    .about-page__hero-video { height: 500px; }
+    .about-gallery__image { height: 540px; }
+
+    /* заголовок */
+    .about-page__info { margin-top: 60px; }
 }
