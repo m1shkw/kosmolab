@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KOSMOLAB — Страница не найдена</title>
+
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/variables.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/tab-adaptive.css">
+    <link rel="stylesheet" href="./css/mob-adaptive.css">
+
+    <link rel="icon" href="./assets/icons/fav-icon-2.png" type="image/png">
+
+    <script src="./js/main.js" defer></script>
+    <script src="./js/cart.js?v=2" defer></script>
+</head>
+
+<body>
+    <div class="page">
+        <header class="header">
+            <a class="header__logo" href="./index.html" aria-label="KOSMOLAB — главная">
+                <img class="header__logo-icon" src="./assets/images/ui/kosmolab-logo-icon.svg" alt="">
+                <span class="header__logo-text">KOSMOLAB</span>
+            </a>
+
+            <nav class="nav" aria-label="Основная навигация">
+                <a class="nav__link text-microcopy-medium" href="./index.html">Главная</a>
+                <a class="nav__link text-microcopy-medium" href="./catalog.html">Каталог</a>
+                <a class="nav__link text-microcopy-medium" href="./events.html">Мероприятия</a>
+                <a class="nav__link text-microcopy-medium" href="./guide.html">Руководство</a>
+                <a class="nav__link text-microcopy-medium" href="./about.html">О нас</a>
+            </nav>
+
+            <button class="button mobile-menu-button text-microcopy-medium" type="button" aria-expanded="false" aria-controls="mobileNav">
+                Меню
+            </button>
+
+            <nav class="mobile-nav" id="mobileNav" aria-label="Мобильная навигация">
+                <a class="mobile-nav__link button text-microcopy-medium" href="./index.html">Главная</a>
+                <a class="mobile-nav__link button text-microcopy-medium" href="./catalog.html">Каталог</a>
+                <a class="mobile-nav__link button text-microcopy-medium" href="./events.html">Мероприятия</a>
+                <a class="mobile-nav__link button text-microcopy-medium" href="./guide.html">Руководство</a>
+                <a class="mobile-nav__link button text-microcopy-medium" href="./about.html">О нас</a>
+            </nav>
+        </header>
+
+        <main>
+            <section class="error-page">
+                <div class="error-hero">
+                    <img class="error-hero__bg" src="./assets/images/hero/hero-bg.svg" alt="" aria-hidden="true">
+
+                    <div class="error-hero__inner">
+                        <div class="error-hero__planet-wrap">
+                            <img class="error-hero__planet error-hero__planet--base" src="./assets/images/planets/planet-2.png" alt="" aria-hidden="true">
+                            <img class="error-hero__planet error-hero__planet--light" src="./assets/images/planets/planet-2-light.png" alt="" aria-hidden="true">
+
+                            <div class="error-callout" aria-label="Сигнал вне орбиты">
+                                <span class="error-callout__circle" aria-hidden="true"></span>
+                                <img class="error-callout__line" src="./assets/images/hero/line-top-right.svg" alt="" aria-hidden="true">
+
+                                <span class="error-callout__text error-callout__text--desktop text-microcopy-medium" data-scramble-text="Сигнал вне орбиты">Сигнал вне орбиты</span>
+
+                                <span class="error-callout__text error-callout__text--mobile text-microcopy-medium" aria-hidden="true">
+                                    <span class="error-callout__text-line" data-scramble-text="Сигнал">Сигнал</span>
+                                    <span class="error-callout__text-line" data-scramble-text="вне орбиты">вне орбиты</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <img class="error-hero__code" src="./assets/images/ui/404.svg" alt="" aria-hidden="true">
+
+                        <p class="error-hero__text text-body">
+                            Запрашиваемая страница не&nbsp;обнаружена в&nbsp;текущей планетарной системе
+                        </p>
+
+                        <a class="error-hero__button button button--solid text-microcopy-medium" href="./index.html">
+                            Вернуться на главную →
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <nav class="footer__nav" aria-label="Навигация в подвале">
+                <a class="text-caption" href="./index.html">Главная</a>
+                <a class="text-caption" href="./catalog.html">Каталог</a>
+                <a class="text-caption" href="./events.html">Мероприятия</a>
+                <a class="text-caption" href="./guide.html">Руководство</a>
+                <a class="text-caption" href="./about.html">О&nbsp;нас</a>
+            </nav>
+
+            <div class="footer__meta">
+                <span class="text-microcopy-medium">АП&nbsp;4М&nbsp;2026</span>
+                <span class="text-microcopy-medium">Рачинская&nbsp;М.&nbsp;Ю.</span>
+            </div>
+
+            <div class="footer__credits">
+                <span class="text-microcopy-medium">Куратор</span>
+                <span class="text-microcopy-medium">Умнова&nbsp;Е.&nbsp;А.</span>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
