@@ -453,7 +453,7 @@ main {
 /* I.I hero-блок */
 .hero-screen {
     width: 100%;
-    min-height: 0x;
+    min-height: 0;
     height: 100svh;
     
 

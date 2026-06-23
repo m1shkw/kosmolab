@@ -1,10 +1,5 @@
-document.addEventListener("DOMContentLoaded", () => {
-    console.log("KOSMOLAB site loaded");
-});
-
-
 // активная ссылка в хедере
-document.addEventListener("DOMContentLoaded", () => {
+function initActiveNav() {
     let currentPage = window.location.pathname.split("/").pop();
 
     if (!currentPage) {
@@ -18,11 +13,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         link.classList.toggle("is-active", linkPage === currentPage);
     });
-});
+}
 
 
 // хедер мобилка / таб
-document.addEventListener("DOMContentLoaded", () => {
+function initMobileHeader() {
     const menuButton = document.querySelector(".mobile-menu-button");
     const mobileNav = document.querySelector(".mobile-nav");
 
@@ -46,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
             menuButton.setAttribute("aria-expanded", "false");
         }
     });
-});
+}
 
 // ховер у хедера: раскрытие меню + scramble эффектик
 (() => {
@@ -326,7 +321,8 @@ document.addEventListener("DOMContentLoaded", () => {
             const start = performance.now();
 
             function frame(now) {
-                if (!el.__scrambleActive) {
+                if (!el.__scrambleActive || !el.isConnected) {
+                    el.__scrambleActive = false;
                     el.textContent = text;
                     resolve();
                     return;
@@ -386,7 +382,7 @@ document.addEventListener("DOMContentLoaded", () => {
         el.textContent = el.dataset.scrambleText || el.textContent;
     }
 
-    document.addEventListener("DOMContentLoaded", () => {
+    function initScrambleText() {
         const targets = document.querySelectorAll("[data-scramble-text]");
         if (!targets.length) return;
 
@@ -411,7 +407,9 @@ document.addEventListener("DOMContentLoaded", () => {
         );
 
         targets.forEach((el) => observer.observe(el));
-    });
+    }
+
+    window.initScrambleText = initScrambleText;
 })();
 
 
@@ -442,11 +440,21 @@ document.addEventListener("DOMContentLoaded", () => {
         let index = 0;
         let timer = null;
 
+        let slideWidth = 0;
+        let gap = 0;
+
+        function measure() {
+            gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+
+            const measuredSlideWidth = slides[0].getBoundingClientRect().width;
+            const measuredRootWidth = root.getBoundingClientRect().width;
+
+            slideWidth = measuredSlideWidth || measuredRootWidth || 1;
+        }
+
         function goToSlide(i) {
             index = (i + slides.length) % slides.length;
 
-            const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
-            const slideWidth = slides[0].getBoundingClientRect().width;
             const step = slideWidth + gap;
 
             let offset = index * step;
@@ -502,23 +510,29 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }
 
-        window.addEventListener("resize", () => goToSlide(index));
+        window.addEventListener("resize", () => {
+            measure();
+            goToSlide(index);
+        });
 
+        measure();
         goToSlide(0);
         startAuto();
     }
 
-    document.addEventListener("DOMContentLoaded", () => {
+    function initAllSliders() {
         document
             .querySelectorAll(
                 ".events-preview__slider, .about-gallery__slider, .guide-spreads__slider"
             )
             .forEach(initSlider);
-    });
+    }
+
+    window.initAllSliders = initAllSliders;
 })();
 
 // оверлей на главной 
-document.addEventListener("DOMContentLoaded", () => {
+function initHomeOverlay() {
     const cards = document.querySelectorAll(
         ".events-preview__slider--mobile .events-preview__card"
     );
@@ -532,11 +546,11 @@ document.addEventListener("DOMContentLoaded", () => {
             card.classList.toggle("is-overlay-hidden");
         });
     });
-});
+}
 
 
 // оверлей на странице мероприятий 
-document.addEventListener("DOMContentLoaded", () => {
+function initEventsOverlay() {
     const page = document.querySelector(".events-page");
     if (!page) return;
 
@@ -623,12 +637,12 @@ document.addEventListener("DOMContentLoaded", () => {
     } else if (mobileQuery.addListener) {
         mobileQuery.addListener(clearAllOverlayState);
     }
-});
+}
 
 
 
-/* каталог : ховер по тапу */
-document.addEventListener("DOMContentLoaded", () => {
+// каталог : ховер по тапу 
+function initCatalogTapHover() {
     const items = document.querySelectorAll(".catalog-merch__item");
     if (!items.length) return;
 
@@ -665,4 +679,26 @@ document.addEventListener("DOMContentLoaded", () => {
     } else if (desktopHoverQuery.addListener) {
         desktopHoverQuery.addListener(clearOnDesktop);
     }
+}
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("KOSMOLAB site loaded");
+
+    initActiveNav();
+    initMobileHeader();
+
+    if (window.initScrambleText) {
+        window.initScrambleText();
+    }
+
+    if (window.initAllSliders) {
+        window.initAllSliders();
+    }
+
+    initHomeOverlay();
+    initEventsOverlay();
+    initCatalogTapHover();
 });

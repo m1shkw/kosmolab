@@ -706,26 +706,26 @@
     /* II.II. планеты */
     .catalog-planets__grid {
         display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         column-gap: var(--grid-gap);
         row-gap: 24px;
     }
 
-    .catalog-planets__item,
-    .catalog-planets__item:nth-child(3n + 1),
-    .catalog-planets__item:nth-child(3n + 2),
-    .catalog-planets__item:nth-child(3n) {
-        grid-column: auto !important;
-        align-items: center !important;
-        width: 100% !important;
+    .catalog-planets__grid .catalog-planets__item,
+    .catalog-planets__grid .catalog-planets__item:nth-child(3n + 1),
+    .catalog-planets__grid .catalog-planets__item:nth-child(3n + 2),
+    .catalog-planets__grid .catalog-planets__item:nth-child(3n) {
+        grid-column: auto;
+        align-items: center;
+        width: 100%;
         min-width: 0;
         padding: 0;
     }
 
-    .catalog-planets__item .catalog-planets__image-wrap {
-        width: 100% !important;
-        max-width: none !important;
-        margin: 0 !important;
+    .catalog-planets__grid .catalog-planets__item .catalog-planets__image-wrap {
+        width: 100%;
+        max-width: none;
+        margin: 0;
     }
 
     .catalog-planets__name {
