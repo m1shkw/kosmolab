@@ -455,13 +455,14 @@ function initMobileHeader() {
         function goToSlide(i) {
             index = (i + slides.length) % slides.length;
 
-            const step = slideWidth + gap;
+            let offset;
 
-            let offset = index * step;
-
-            // центрирование разворота
             if (root.classList.contains("guide-spreads__slider")) {
-                offset -= (root.clientWidth - slideWidth) / 2;
+                const slide = slides[index];
+                const currentSlideWidth = slide.getBoundingClientRect().width;
+                offset = slide.offsetLeft - (root.clientWidth - currentSlideWidth) / 2;
+            } else {
+                offset = index * (slideWidth + gap);
             }
 
             const maxOffset = Math.max(0, track.scrollWidth - root.clientWidth);
@@ -518,6 +519,19 @@ function initMobileHeader() {
         measure();
         goToSlide(0);
         startAuto();
+
+        root.querySelectorAll("img").forEach((img) => {
+            if (!img.complete) {
+                img.addEventListener(
+                    "load",
+                    () => {
+                        measure();
+                        goToSlide(index);
+                    },
+                    { once: true }
+                );
+            }
+        });
     }
 
     function initAllSliders() {
